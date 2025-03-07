@@ -1,6 +1,6 @@
-  --------
-  -- AI --
-  --------
+--------
+-- AI --
+--------
 
 local prompts = {
   Explain = "Please explain how the following code works.",
@@ -19,20 +19,20 @@ local prompts = {
   Summarize = "Please summarize the following text.",
   Spelling = "Please correct any grammar and spelling errors in the following text.",
   Wording = "Please improve the grammar and wording of the following text.",
-  Concise = "Please rewrite the following text to make it more concise."
+  Concise = "Please rewrite the following text to make it more concise.",
 }
 
 return {
   {
     -- Chat with your code as if you are in Cursor AI IDE
     "yetone/avante.nvim",
-    lazy = false,
+    -- lazy = false,
     enabled = false,
     version = false,
     opts = {
       provider = "copilot",
       copilot = {
-        model = "claude-3.5-sonnet"
+        model = "claude-3.5-sonnet",
       },
       auto_suggestions_provider = "copilot",
       behaviour = {
@@ -40,7 +40,7 @@ return {
         auto_set_highlight_group = true,
         auto_set_keymaps = true,
         auto_apply_diff_after_generation = false,
-        support_paste_from_clipboard = false
+        support_paste_from_clipboard = false,
       },
       mappings = {
         diff = {
@@ -50,31 +50,31 @@ return {
           both = "cb",
           cursor = "cc",
           next = "]x",
-          prev = "[x"
+          prev = "[x",
         },
         suggestion = {
           accept = "<M-l>",
           next = "<M-]>",
           prev = "<M-[>",
-          dismiss = "<C-]>"
+          dismiss = "<C-]>",
         },
         jump = {
           next = "]]",
-          prev = "[["
+          prev = "[[",
         },
         submit = {
           normal = "<CR>",
-          insert = "<C-s>"
+          insert = "<C-s>",
         },
         sidebar = {
           apply_all = "A",
           apply_cursor = "a",
           switch_windows = "<Tab>",
-          reverse_switch_windows = "<S-Tab>"
-        }
+          reverse_switch_windows = "<S-Tab>",
+        },
       },
       hints = {
-        enabled = false
+        enabled = false,
       },
       windows = {
         position = "left",
@@ -83,32 +83,32 @@ return {
         sidebar_header = {
           enabled = true,
           align = "center",
-          rounded = false
+          rounded = false,
         },
         input = {
           prefix = "> ",
-          height = 8
+          height = 8,
         },
         edit = {
-          start_insert = true
+          start_insert = true,
         },
         ask = {
           floating = false,
           start_insert = true,
-          focus_on_apply = "ours"
-        }
+          focus_on_apply = "ours",
+        },
       },
       highlights = {
         diff = {
           current = "DiffText",
-          incoming = "DiffAdd"
-        }
+          incoming = "DiffAdd",
+        },
       },
       diff = {
         autojump = true,
         list_opener = "copen",
-        override_timeoutlen = 500
-      }
+        override_timeoutlen = 500,
+      },
     },
     build = "make",
     dependencies = {
@@ -125,38 +125,39 @@ return {
             embed_image_as_base64 = false,
             prompt_for_file_name = false,
             drag_and_drop = {
-              insert_mode = true
+              insert_mode = true,
             },
-            use_absolute_path = true
-          }
-        }
+            use_absolute_path = true,
+          },
+        },
       },
       {
         "MeanderingProgrammer/render-markdown.nvim",
         opts = {
           file_types = {
             "markdown",
-            "Avante"
-          }
+            "Avante",
+          },
         },
         ft = {
           "markdown",
-          "Avante"
-        }
-      }
-    }
+          "Avante",
+        },
+      },
+    },
   },
   {
     -- A chat interface for GitHub Copilot that allows you to directly ask and receive answers to coding-related questions
     "CopilotC-Nvim/CopilotChat.nvim",
+    enabled = false,
     opts = {
       prompts = prompts,
       system_prompt = "I am NAIVIM (Neo Artificial Intelligence Vim), Hi :)",
       model = "gpt-4o",
       answer_header = " NAIVIM ",
       window = {
-        layout = "float"
-      }
-    }
-  }
+        layout = "float",
+      },
+    },
+  },
 }

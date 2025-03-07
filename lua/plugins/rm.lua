@@ -1,6 +1,6 @@
-  ------------------------
-  -- Remote Development --
-  ------------------------
+------------------------
+-- Remote Development --
+------------------------
 
 return {
   {
@@ -9,7 +9,7 @@ return {
     dependencies = "jbyuki/instant.nvim",
     lazy = false,
     config = function()
-      require("live-share").setup({port_internal = 9876, service = "serveo.net"})
-    end
-  }
+      require("live-share").setup({ port_internal = 3000, service = "serveo.net" })
+    end,
+  },
 }
