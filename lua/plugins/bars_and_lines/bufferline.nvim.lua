@@ -22,13 +22,6 @@ end
 local get_element_icon = function(element)
 	local icon, hl = require("nvim-web-devicons").get_icon_by_filetype(element.filetype, {default = false})
 	return icon, hl
-	local custom_map = {
-		my_thing_ft: {
-			icon = "my_thing_icon",
-			hl
-		}
-	}
-	return custom_map[element.filetype]
 end
 
 local modified = function(buffer_a, buffer_b)
@@ -39,21 +32,21 @@ end
 
 return {
 	"akinsho/bufferline.nvim",
+	event = "BufReadPre",
 	tag = "*",
 	enabled = false,
 	opts = {
 		options = {
 			mode = "buffers",
-			style_preset = bufferline.style_preset.default,
-			themable = true | false,
-			numbers = "none" | "ordinal" | "buffer_id" | "both" | function({ordinal, id, lower, raise}): string,
+			themable = true,
+			numbers = "none",
 			close_command = "bdelete! %d",
 			right_mouse_command = "bdelete! %d",
 			left_mouse_command = "buffer %d",
 			middle_mouse_command = nil,
 			indicator = {
 				icon = "▎",
-				style = "icon" | "underline" | "none"
+				style = "icon"
 			},
 			buffer_close_icon = "󰅖",
 			modified_icon = "● ",
@@ -67,7 +60,7 @@ return {
 			max_prefix_length = 15,
 			truncate_names = true,
 			tab_size = 18,
-			diagnostics = false | "nvim_lsp" | "coc",
+			diagnostics = "nvim_lsp",
 			diagnostics_update_in_insert = false,
 			diagnostics_update_on_event = true,
 			diagnostics_indicator = diagnostics_indicator,
@@ -75,25 +68,25 @@ return {
 			offsets = {
 				{
 					filetype = "NvimTree",
-					text = "File Explorer" | function,
-					text_align = "left" | "center" | "right",
+					text = "File Explorer",
+					text_align = "left",
 					separator = true
 				}
 			},
-			color_icons = true | false,
+			color_icons = true,
 			get_element_icon = get_element_icon,
-			show_buffer_icons = true | false,
-			show_buffer_close_icons = true | false,
-			show_close_icon = true | false,
-			show_tab_indicators = true | false,
-			show_duplicate_prefix = true | false,
+			show_buffer_icons = true,
+			show_buffer_close_icons = true,
+			show_close_icon = true,
+			show_tab_indicators = true,
+			show_duplicate_prefix = true,
 			duplicates_across_groups = true,
 			persist_buffer_sort = true,
 			move_wraps_at_ends = false,
-			separator_style = "slant" | "slope" | "thick" | "thin" | {"any", "any"},
-			enforce_regular_tabs = false | true,
-			always_show_bufferline = true | false,
-			auto_toggle_bufferline = true | false,
+			separator_style = "slant",
+			enforce_regular_tabs = false,
+			always_show_bufferline = true,
+			auto_toggle_bufferline = true,
 			hover = {
 					enabled = true,
 					delay = 200,
@@ -101,7 +94,7 @@ return {
 						"close"
 					}
 			},
-			sort_by = "insert_after_current" | "insert_at_end" | "id" | "extension" | "relative_directory" | "directory" | "tabs" | modified,
+			sort_by = "insert_after_current",
 			pick = {
 				alphabet = "abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMOPQRSTUVWXYZ1234567890"
 			}

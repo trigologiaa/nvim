@@ -31,6 +31,7 @@ local location = {
 
 return {
   "nvim-lualine/lualine.nvim",
+  enabled = true,
   event = "BufWinEnter",
   dependencies = {
     "nvim-tree/nvim-web-devicons"

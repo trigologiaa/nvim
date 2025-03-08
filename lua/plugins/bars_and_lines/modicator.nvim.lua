@@ -2,10 +2,11 @@
 
 return {
   "mawkler/modicator.nvim",
+  enabled = true,
+  event = "BufRead",
   dependencies = {
     "folke/tokyonight.nvim"
   },
-  event = "BufRead",
   opts = {
     show_warnings = false,
     highlights = {

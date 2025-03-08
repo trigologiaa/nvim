@@ -9,11 +9,30 @@
 --------------------
 
 -- akinsho/bufferline.nvim: A snazzy buffer line built using Lua
--- No commands
+vim.keymap.set("n", "<leader>blcl", "<cmd>BufferLineCloseLeft<CR>", {desc = "Close buffers to the left"})
+vim.keymap.set("n", "<leader>blco", "<cmd>BufferLineCloseOthers<CR>", {desc = "Close all other buffers"})
+vim.keymap.set("n", "<leader>blcr", "<cmd>BufferLineCloseRight<CR>", {desc = "Close buffers to the right"})
+vim.keymap.set("n", "<leader>blcn", "<cmd>BufferLineCycleNext<CR>", {desc = "Switch to the next buffer"})
+vim.keymap.set("n", "<leader>blcp", "<cmd>BufferLineCyclePrev<CR>", {desc = "Switch to the previous buffer"})
+vim.keymap.set("n", "<leader>blgtb", "<cmd>BufferLineGoToBuffer<CR>", {desc = "Go to a specific buffer"})
+vim.keymap.set("n", "<leader>blgc", "<cmd>BufferLineGroupClose<CR>", {desc = "Close a buffer group"})
+vim.keymap.set("n", "<leader>blgt", "<cmd>BufferLineGroupToggle<CR>", {desc = "Toggle buffer group visibility"})
+vim.keymap.set("n", "<leader>blmn", "<cmd>BufferLineMoveNext<CR>", {desc = "Move buffer to the next position"})
+vim.keymap.set("n", "<leader>blmp", "<cmd>BufferLineMovePrev<CR>", {desc = "Move buffer to the previous position"})
+vim.keymap.set("n", "<leader>blp", "<cmd>BufferLinePick<CR>", {desc = "Pick a buffer to switch to"})
+vim.keymap.set("n", "<leader>blpc", "<cmd>BufferLinePickClose<CR>", {desc = "Pick a buffer to close"})
+vim.keymap.set("n", "<leader>blsbd", "<cmd>BufferLineSortByDirectory<CR>", {desc = "Sort buffers by directory"})
+vim.keymap.set("n", "<leader>blsbe", "<cmd>BufferLineSortByExtension<CR>", {desc = "Sort buffers by file extension"})
+vim.keymap.set("n", "<leader>blsbrd", "<cmd>BufferLineSortByRelativeDirectory<CR>", {desc = "Sort buffers by relative directory"})
+vim.keymap.set("n", "<leader>blsbt", "<cmd>BufferLineSortByTabs<CR>", {desc = "Sort buffers by tab order"})
+vim.keymap.set("n", "<leader>bltr", "<cmd>BufferLineTabRename<CR>", {desc = "Rename the current tab"})
+vim.keymap.set("n", "<leader>bltp", "<cmd>BufferLineTogglePin<CR>", {desc = "Toggle buffer pin state"})
 
 -- b0o/incline.nvim: Lightweight floating statuslines, intended for use with Neovim's new global statusline
+-- No commands
 
 -- nvim-lualine/lualine.nvim: A blazing fast and easy to configure Neovim statusline
+-- No commands
 
 -- mawkler/modicator.nvim: Cursor line number mode indicator. Changes the CursorLineNr highlight based on Vim mode
 -- No commands
@@ -23,9 +42,12 @@ vim.keymap.set("n", "<leader>cwt", "<cmd>Cursorword toggle<CR>", {desc = "Toggle
 vim.keymap.set("n", "<leader>cwe", "<cmd>Cursorword enable<CR>", {desc = "Enable highlight the word under the cursor"})
 vim.keymap.set("n", "<leader>cwd", "<cmd>Cursorword disable<CR>", {desc = "Disable highlight the word under the cursor"})
 
-------------
--- Others --
-------------
+-----------
+-- Color --
+-----------
+
+-- xzbdmw/colorful-menu.nvim: Colorize your auto completion menu using Tree-sitter
+
 
 -- Position cursor at the middle of the screen after scrolling half page
 vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Scroll down half a page and center the cursor

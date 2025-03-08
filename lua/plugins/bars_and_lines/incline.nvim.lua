@@ -103,6 +103,7 @@ end
 
 return {
   "b0o/incline.nvim",
+  enabled = true,
   event = "BufReadPre",
   opts = {
     debounce_threshold = {

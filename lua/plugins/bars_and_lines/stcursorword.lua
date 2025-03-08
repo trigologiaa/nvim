@@ -2,6 +2,7 @@
 
 return {
   "sontungexpt/stcursorword",
+  enabled = true,
   event = "CursorMoved",
   opts = {
     max_word_length = 100,
