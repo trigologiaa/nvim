@@ -31,7 +31,8 @@ require("lazy").setup({
     {import = "lazyvim.plugins.extras.linting.eslint"},
     {import = "lazyvim.plugins.extras.lsp.none-ls"},
     {import = "lazyvim.plugins.extras.util.mini-hipatterns"},
-    {import = "plugins"}
+    {import = "plugins"},
+    {import = "plugins.bars_and_lines"}
   },
   defaults = {lazy = false, version = false},
   install = {colorscheme = {"tokyonight", "habamax"}},

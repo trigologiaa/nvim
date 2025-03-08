@@ -33,7 +33,9 @@ return {
             "NonText",
             "SignColumn",
             "CursorLineNr",
-            "EndOfBuffer"
+            "EndOfBuffer",
+            "InclineNormal",
+            "InclineNormalNC"
           },
           exclude = {}
         }
