@@ -4,6 +4,29 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+--------------------
+-- Bars and Lines --
+--------------------
+
+-- akinsho/bufferline.nvim: A snazzy buffer line built using Lua
+-- No commands
+
+-- b0o/incline.nvim: Lightweight floating statuslines, intended for use with Neovim's new global statusline
+
+-- nvim-lualine/lualine.nvim: A blazing fast and easy to configure Neovim statusline
+
+-- mawkler/modicator.nvim: Cursor line number mode indicator. Changes the CursorLineNr highlight based on Vim mode
+-- No commands
+
+-- sontungexpt/stcursorword: Highlight the word under the cursor
+vim.keymap.set("n", "<leader>cwt", "<cmd>Cursorword toggle<CR>", {desc = "Toggle highlight the word under the cursor"})
+vim.keymap.set("n", "<leader>cwe", "<cmd>Cursorword enable<CR>", {desc = "Enable highlight the word under the cursor"})
+vim.keymap.set("n", "<leader>cwd", "<cmd>Cursorword disable<CR>", {desc = "Disable highlight the word under the cursor"})
+
+------------
+-- Others --
+------------
+
 -- Position cursor at the middle of the screen after scrolling half page
 vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Scroll down half a page and center the cursor
 vim.keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll up half a page and center the cursor

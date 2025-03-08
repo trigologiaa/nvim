@@ -5,6 +5,11 @@ end
 
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+-- Configuration for modicator.nvim
+vim.o.cursorline = true
+vim.o.number = true
+vim.o.termguicolors = true
+
 
 require("lazy").setup({
   spec = {
