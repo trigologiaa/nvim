@@ -1,4 +1,5 @@
 -- Colorize your auto completion menu using Tree-sitter
+-- Review later with the completion plugins....
 
 -- Has built-in support for
   -- rust-analyzer (Rust)

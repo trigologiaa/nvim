@@ -47,7 +47,30 @@ vim.keymap.set("n", "<leader>cwd", "<cmd>Cursorword disable<CR>", {desc = "Disab
 -----------
 
 -- xzbdmw/colorful-menu.nvim: Colorize your auto completion menu using Tree-sitter
+-- No commands
 
+-- max397574/colortils.nvim: A plugin providing utils to work with colors (picker, conversion) inside Neovim
+vim.keymap.set("n", "<leader>ct", "<cmd>Colortils<CR>", {desc = "Open the color picker Colortils"})
+
+-- echasnovski/mini.hipatterns: Module of mini.nvim to highlight patterns in text with configurable highlighters
+-- No commands
+
+-- rachartier/tiny-devicons-auto-colors.nvim: Automatically updates nvim-web-devicons colors based on your current colorscheme
+-- No commands
+
+-- xiyaowong/transparent.nvim: Make your Neovim transparent
+vim.keymap.set("n", "<leader>te", "<cmd>TransparentEnable<CR>", {desc = "Make the NeoVim transparent"})
+vim.keymap.set("n", "<leader>td", "<cmd>TransparentDisable<CR>", {desc = "Make the NeoVim non transparent"})
+vim.keymap.set("n", "<leader>tt", "<cmd>TransparentToggle<CR>", {desc = "Toggle the transparent of the NeoVim"})
+
+-- folke/twilight.nvim: Dim inactive portions of the code you're editing using Tree-sitter
+vim.keymap.set("n", "<leader>tlt", "<cmd>Twilight<CR>", {desc = "Toggle the twilight"})
+vim.keymap.set("n", "<leader>tle", "<cmd>TwilightEnable<CR>", {desc = "Enable the twilight"})
+vim.keymap.set("n", "<leader>tld", "<cmd>TwilightDisable<CR>", {desc = "Disable the twilight"})
+
+-----------
+-- Other --
+-----------
 
 -- Position cursor at the middle of the screen after scrolling half page
 vim.keymap.set("n", "<C-d>", "<C-d>zz") -- Scroll down half a page and center the cursor

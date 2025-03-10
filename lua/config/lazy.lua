@@ -11,6 +11,7 @@ vim.o.number = true
 vim.o.termguicolors = true
 
 
+
 require("lazy").setup({
   spec = {
     {"LazyVim/LazyVim", import = "lazyvim.plugins"},
