@@ -7,6 +7,7 @@
 --------------------
 -- Bars and Lines --
 --------------------
+vim.keymap.set("n", "<leader>A", "<cmd>")
 
 -- akinsho/bufferline.nvim: A snazzy buffer line built using Lua
 vim.keymap.set("n", "<leader>blcl", "<cmd>BufferLineCloseLeft<CR>", {desc = "Close buffers to the left"})
@@ -67,6 +68,45 @@ vim.keymap.set("n", "<leader>tt", "<cmd>TransparentToggle<CR>", {desc = "Toggle 
 vim.keymap.set("n", "<leader>tlt", "<cmd>Twilight<CR>", {desc = "Toggle the twilight"})
 vim.keymap.set("n", "<leader>tle", "<cmd>TwilightEnable<CR>", {desc = "Enable the twilight"})
 vim.keymap.set("n", "<leader>tld", "<cmd>TwilightDisable<CR>", {desc = "Disable the twilight"})
+
+-----------------
+-- Colorscheme --
+-----------------
+
+-- dgox16/oldworld.nvim: Dark theme with relaxing and no-saturated colors
+-- No commands
+
+-- folke/tokyonight.nvim: A clean, dark and light Neovim theme written in Lua, with support for LSP, Tree-sitter and lots of plugins
+-- No commands
+
+----------------
+-- Completion --
+----------------
+
+-- zbirenbaum/copilot.lua: Fully featured Lua replacement for GitHub/copilot.vim
+vim.keymap.set("n", "<leader>cp", "<cmd>Copilot<CR>", {desc = "Open Copilot"})
+
+-- hrsh7th/nvim-cmp: A completion plugin written in Lua
+-- No commands
+
+---------------
+-- Debugging --
+---------------
+
+-- mfussenegger/nvim-dap: Debug Adapter Protocol client implementation
+
+---------------------------
+-- Dependency Management --
+---------------------------
+
+
+
+---------------------
+-- Editing Support --
+---------------------
+
+-- folke/zen-mode.nvim: Distraction-free coding
+vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", {desc = "Toggle Zen Mode"})
 
 -----------
 -- Other --
