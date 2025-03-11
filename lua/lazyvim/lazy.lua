@@ -12,12 +12,15 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "|"
-
 local spec = {
   {
     import = "lazyvim.plugins"
+  },
+  {
+    import = "lazyvim.plugins.extras"
+  },
+  {
+    import = "lazyvim.plugins.extras.util"
   }
 }
 
