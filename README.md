@@ -1,7 +1,4 @@
-# MY DOTFILES FOR NEOVIM 
+# 💤 LazyVim
 
-I just create this to put this screenshot...
-
-the dependencies are not clear yet :)
-
-![NeoVim Dashboard](img/image.png)
+A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
+Refer to the [documentation](https://lazyvim.github.io/installation) to get started.

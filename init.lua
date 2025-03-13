@@ -1,5 +1,3 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
+vim.env.PATH = '/home/gaston/.asdf/shims:' .. vim.env.PATH
 require("config.lazy")
-vim.opt.timeoutlen = 1000
-vim.opt.ttimeoutlen = 0
-vim.g.instant_username = "trigologiaa"
