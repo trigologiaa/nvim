@@ -1,0 +1,20 @@
+return {
+	"mason-org/mason-lspconfig.nvim",
+	event = {
+		"BufReadPre",
+		"BufNewFile",
+	},
+	dependencies = {
+		"mason-org/mason.nvim",
+		"neovim/nvim-lspconfig",
+	},
+	opts = {
+		ensure_installed = {
+			"gopls",
+		},
+		automatic_installation = true,
+		diagnostics = {
+			virtual_text = false, -- for tiny-inline-diagnostic plugin
+		},
+	},
+}
