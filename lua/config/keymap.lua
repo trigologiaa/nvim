@@ -56,7 +56,7 @@ map("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", "[u]i interface
 map("n", "<leader>dw", "<cmd>lua require('dap.ui.widgets').hover()<CR>", "debug [w]idgets")
 
 -- e: Explorer
-map("n", "<leader>ee", "<cmd>Yazi<CR>", "yazi [e]xplorer")
+map("n", "<leader>e", "<cmd>Yazi<CR>", "yazi [e]xplorer")
 
 -- f: Find / File
 map("n", "<leader>f", "", "Find / File")
