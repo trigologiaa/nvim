@@ -13,7 +13,7 @@ Inicialmente creé esta configuración para que funcione con los lenguajes de pr
 las materias de la universidad en las cuales soy ayudante de cátedra. Con un poco de suerte podré
 usar esto para trabajar con ellos.
 
-También trato de alejarme de LazyVim como configuración, ya que hay cosas con las que no temrino de
+También trato de alejarme de LazyVim como configuración, ya que hay cosas con las que no termino de
 estar cómodo para trabajar.
 
 ## Dependencias
