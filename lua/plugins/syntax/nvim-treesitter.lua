@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	enabled = true,
 	branch = "main",
 	build = ":TSUpdate",
 	lazy = false,
@@ -16,6 +17,8 @@ return {
 			"html",
 			"latex",
 			"diff",
+			"lua",
+			"luadoc",
 		},
 		install_dir = vim.fn.stdpath("data") .. "/site",
 		highlight = {
