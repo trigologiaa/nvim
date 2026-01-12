@@ -15,9 +15,11 @@ return {
 			"  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
 			"                                                     ",
 		}
+		local username = os.getenv("USER") or os.getenv("USERNAME") or "User"
+
 		local trigologiaa_section = {
 			type = "text",
-			val = "  trigologiaa  ",
+			val = "  " .. username .. "  ",
 			opts = {
 				hl = "String",
 				position = "center",
