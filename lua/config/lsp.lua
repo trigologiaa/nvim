@@ -15,6 +15,15 @@ vim.lsp.config["gopls"] = {
 	},
 	settings = {
 		gopls = {
+			hints = {
+				assignVariableTypes = true,
+				compositeLiteralFields = true,
+				compositeLiteralTypes = true,
+				constantValues = true,
+				functionTypeParameters = true,
+				parameterNames = true,
+				rangeVariableTypes = true,
+			},
 			analyses = {
 				unusedparams = true,
 			},
@@ -35,3 +44,45 @@ vim.lsp.config["gopls"] = {
 }
 
 vim.lsp.enable("gopls")
+
+vim.lsp.config["lua_ls"] = {
+	cmd = {
+		"lua-language-server",
+	},
+	filetypes = {
+		"lua",
+	},
+	root_markers = {
+		".emmyrc.json",
+		".luarc.json",
+		".luarc.jsonc",
+		".stylua.toml",
+		"stylua.toml",
+		"selene.toml",
+		"selene.yml",
+		".git",
+	},
+	settings = {
+		Lua = {
+			codeLens = {
+				enable = true,
+			},
+			hint = {
+				enable = true,
+				setType = true,
+				paramName = "All",
+				paramType = true,
+				arrayIndex = "Disable",
+			},
+			diagnostics = {
+				globals = {
+					"vim",
+				},
+			},
+		},
+	},
+}
+
+vim.lsp.enable("lua_ls")
+
+vim.lsp.inlay_hint.enable(true)
