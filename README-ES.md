@@ -1,4 +1,38 @@
-# nvim
+# nvim-config
+
+> Mi configuración personal de NeoVim, optimizada inicialmente para **Go** y diseñada para utilizar
+> con otros lenguajes.
+
+Esta configuración nació de la necesidad de un entorno de trabajo personalizado para mis labores
+como ayudante de cátedra en la universidad UNTREF. A diferencia de distribuciones preconfiguradas
+como **LazyVim**, busco un control total sobre cada plugin y comportamiento del editor.
+
+---
+
+## Advertencia de compatibilidad
+
+Esta configuración es **altamente específica** para mi flujo de trabajo actual:
+
+- Versión: NeoVim Nightly (actualmente 0.12.0)
+- Sistema Operativo: Arch Linux
+- Gestor de Ventanas: Hyprland
+
+Es probable que esta configuración no funcione en otros sistemas operativos sin requerir 
+
+---
+
+## Lenguajes soportados
+
+- **Go**
+
+### Próximos Lenguajes
+
+- Python
+- Java
+- C
+- Ruby
+- TypeScript
+- SQL
 
 Esta es una configuración que voy a usar, por ahora, para escribir código en el lenguaje de
 programación Go... mi objetivo es expandir dicha configuración para que funcione con múltiples
@@ -21,6 +55,7 @@ estar cómodo para trabajar.
 Esta configuración utiliza los siguientes programas:
 
 - fzf
+- kitty
 
 > No recuerdo todos los programas que tengo instalados, por lo que voy a ir actualizando esta lista
 > (espero).
