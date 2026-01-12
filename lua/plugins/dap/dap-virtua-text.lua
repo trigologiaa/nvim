@@ -1,7 +1,10 @@
 return {
 	"theHamsta/nvim-dap-virtual-text",
 	enabled = true,
-	ft = "go",
+	ft = {
+		"go",
+		"lua",
+	},
 	opts = {
 		enabled = true,
 		enabled_commands = true,

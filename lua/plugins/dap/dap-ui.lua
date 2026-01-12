@@ -1,7 +1,10 @@
 return {
 	"rcarriga/nvim-dap-ui",
 	enabled = true,
-	ft = "go",
+	ft = {
+		"go",
+		"lua",
+	},
 	dependencies = {
 		"nvim-neotest/nvim-nio",
 		"mfussenegger/nvim-dap",
