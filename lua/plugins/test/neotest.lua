@@ -1,8 +1,13 @@
 return {
 	"nvim-neotest/neotest",
-  ft = "go",
-  dependencies = {
+	enabled = true,
+	ft = {
+		"go",
+		"lua",
+	},
+	dependencies = {
 		"nvim-neotest/nvim-nio",
+		"MisanthropicBit/neotest-busted",
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
 		{
@@ -26,6 +31,24 @@ return {
 	},
 	opts = function(_, opts)
 		opts.adapters = opts.adapters or {}
+		opts.adapters["neotest-busted"] = {
+			busted_command = "busted",
+			no_nvim = true,
+			busted_args = {
+				"--shuffle-files",
+			},
+			busted_paths = {
+				"./?.lua",
+				"./lua/?.lua",
+				"./spec/?.lua",
+			},
+			-- busted_cpaths = {
+			--   "",
+			-- },
+			-- minimal_init = nil,
+			parametric_test_discovery = false,
+			local_luarocks_only = false,
+		}
 		opts.adapters["neotest-golang"] = {
 			go_test_args = {
 				"-v",
