@@ -1,4 +1,4 @@
-function map(mode, lhs, rhs, desc)
+local function map(mode, lhs, rhs, desc)
 	vim.keymap.set(mode, lhs, rhs, { silent = true, noremap = true, desc = desc })
 end
 
@@ -12,11 +12,9 @@ map("v", "<leader>T", "<cmd>Babel<CR>", "translate selection")
 -- a: Actions / AI
 map("n", "<leader>a", "", "Actions / AI")
 map("n", "<leader>aa", "<cmd>lua require('tiny-code-action').code_action()<CR>", "LSP [a]ctions")
-map("n", "<leader>al", "<cmd>GoCodeLenAct<CR>", "Code[l]ens action")
 
 -- b: Buffers
 map("n", "<leader>b", "", "Buffers")
-map("n", "<leader>ba", "<cmd>GoAltV<CR>", "[a]lternate source buffer")
 map("n", "<leader>bb", "<C-^>", "switch [b]uffers")
 map("n", "<leader>bd", "<cmd>bdelete<CR>", "[d]elete buffer")
 map("n", "<leader>bo", "<cmd>%bd|e#|bd#<CR>", "delete [o]ther buffers")
@@ -24,14 +22,12 @@ map("n", "<leader>bs", "<cmd>Telescope buffers<CR>", "[s]how all buffers")
 
 -- c: Code / Compiler
 map("n", "<leader>c", "", "Code / Compiler")
-map("n", "<leader>cc", "<cmd>GoCmt<CR>", "generate [c]omment")
+map("n", "<leader>cc", require("config.functions").generate_doc_comment, "generate [c]omment")
 map("n", "<leader>cd", "<cmd>lua require('hover').open()<CR>", "code [d]efinition")
-map("n", "<leader>ce", require("config.functions").execute_go_file, "[e]xecute code")
+map("n", "<leader>ce", require("config.functions").execute_current_file, "[e]xecute code")
 map("n", "<leader>cf", "<cmd>lua require('conform').format()<CR>", "[f]ormat code")
-map("n", "<leader>ci", "<cmd>GoImports<CR>", "organize [i]mports")
 map("n", "<leader>cr", "<cmd>Trouble lsp toggle<CR>", "code [r]eferences/definitions")
 map("n", "<leader>cs", "<cmd>Trouble symbols toggle <CR>", "code [s]ymbols")
-map("n", "<leader>ct", "<cmd>GoModTidy<CR>", "go mod [t]idy")
 
 -- d: Debug
 map("n", "<leader>d", "", "Debug")
@@ -60,9 +56,8 @@ map("n", "<leader>e", "<cmd>Yazi<CR>", "yazi [e]xplorer")
 
 -- f: Find / File
 map("n", "<leader>f", "", "Find / File")
-map("n", "<leader>fe", "<cmd>GoEnv<CR>", "load [e]nvironment variables")
 map("n", "<leader>ff", "<cmd>FzfLua<CR>", "[f]zf")
-map("n", "<leader>fn", "<cmd>GoNew<CR>", "[n]ew Go archive")
+map("n", "<leader>fn", require("config.functions").new_file, "[n]ew archive in actual dir")
 map("n", "<leader>ft", "<cmd>Telescope<CR>", "[t]elescope")
 
 -- g: Git / GitHub / GitLab
@@ -138,25 +133,16 @@ map("n", "<leader>qs", "<cmd>confirm qall<CR>", "quit [s]aving")
 
 -- r: Refactor
 map("n", "<leader>r", "", "Refactor")
-map("n", "<leader>ra", "<cmd>GoAddTag<CR>", "[a]dd struct tags")
-map("n", "<leader>rc", "<cmd>GoClearTag<CR>", "[c]lear all tags")
-map("n", "<leader>re", "<cmd>GoRmTag<CR>", "[e]liminate struct tags")
-map("n", "<leader>rf", "<cmd>GoFixPlurals<CR>", "[f]ix plurals")
-map("n", "<leader>rm", "<cmd>Gomvp<CR>", "[m]ove package/rename module")
 map("n", "<leader>rr", vim.lsp.buf.rename, "[r]ename symbol")
 
 -- s: Search / Store
 map("n", "<leader>s", "", "Search / Store")
-map("n", "<leader>sb", "<cmd>GoDocBrowser<CR>", "search [b]rowser documentation")
-map("n", "<leader>sc", "<cmd>GoCheat<CR>", "search [c]heatsheet")
 map("n", "<leader>sp", "<cmd>Store<CR>", "search [p]lugins")
 map("n", "<leader>st", "<cmd>Telescope live_grep<CR>", "search [t]ext")
 
 -- t: Test
 map("n", "<leader>t", "", "Test")
-map("n", "<leader>ta", "<cmd>GoAddTest<CR>", "[a]dd test for function")
 map("n", "<leader>tc", "<cmd>lua require('neotest').run.run(vim.uv.cwd())<CR>", "run tests in [c]wd")
-map("n", "<leader>te", "<cmd>GoAddExpTest<CR>", "add test for [e]xported functions")
 map("n", "<leader>tl", "<cmd>lua require('neotest').run.run_last()<CR>", "run [l]ast test")
 map("n", "<leader>tn", "<cmd>lua require('neotest').run.run()<CR>", "run [n]earest test")
 map("n", "<leader>to", "<cmd>lua require('neotest').summary.toggle()<CR>", "toggle test [o]verview")
@@ -166,14 +152,14 @@ map("n", "<leader>tt", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<
 
 -- u: UI / Appearance
 map("n", "<leader>u", "", "UI / Appearance")
-map("n", "<leader>uc", "<cmd>SmearCursorToggle<CR>", "toggle [c]ursor animation")
-map("n", "<leader>uh", "<cmd>GoToggleInlay<CR>", "toggle inlay [h]ints")
-map("n", "<leader>um", "<cmd>Precognition toggle<CR>", "toggle [m]otion hints")
+map("n", "<leader>uc", require("config.functions").toggle_cursor_animation, "toggle [c]ursor animation")
+map("n", "<leader>uf", require("config.functions").toggle_autoformat, "toggle auto[f]ormat")
+map("n", "<leader>uh", require("config.functions").toggle_inlay_hints, "toggle inlay [h]ints")
+map("n", "<leader>um", require("config.functions").toggle_motion_hints, "toggle [m]otion hints")
 map("n", "<leader>ut", require("config.functions").toggle_transparency, "toggle [t]ransparent background")
 map("n", "<leader>uu", require("config.functions").toggle_ui, "toggle [u]i")
-map("n", "<leader>uv", "<cmd>CsvViewToggle<CR>", "toggle cs[v] view")
-map("n", "<leader>uz", "<cmd>ZenMode<CR>", "toggle [z]en mode")
-map("n", "<leader>uf", require("config.functions").toggle_autoformat, "toggle auto[f]ormat")
+map("n", "<leader>uv", require("config.functions").toggle_csv_view, "toggle cs[v] view")
+map("n", "<leader>uz", require("config.functions").toggle_zen_mode, "toggle [z]en mode")
 
 -- w: Windows
 map("n", "<leader>w", "", "Windows")
@@ -181,14 +167,11 @@ map("n", "<Tab>", "<C-w>w", "next window")
 
 -- x: Diagnostics
 map("n", "<leader>x", "", "Diagnostics")
-map("n", "<leader>xc", "<cmd>GoVulnCheck<CR>", "run vuln [c]heck")
 map("n", "<leader>xd", "<cmd>Trouble diagnostics toggle<CR>", "toggle [d]iagnostics")
-map("n", "<leader>xe", "<cmd>GoIfErr<CR>", "generate if [e]rr")
 map("n", "<leader>xf", "<cmd>Trouble qflist toggle<CR>", "toggle [f]ix list")
 map("n", "<leader>xh", "<cmd>checkhealth<CR>", "run check[h]ealth")
-map("n", "<leader>xl", require("config.functions").lint_go_project, "run [l]inter in terminal")
+map("n", "<leader>xl", require("config.functions").lint_file, "run [l]inter in cursor")
 map("n", "<leader>xu", "<cmd>Trouble loclist toggle<CR>", "[u]bication list")
-map("n", "<leader>xv", "<cmd>GoVet<CR>", "run [v]et")
 
 -- y: Yank
 map("n", "<leader>y", "", "Yank")
