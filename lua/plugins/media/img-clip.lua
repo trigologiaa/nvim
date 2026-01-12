@@ -1,6 +1,7 @@
 return {
 	"HakonHarnes/img-clip.nvim",
-  ft = "markdown",
+	enabled = true,
+	ft = "markdown",
 	opts = {
 		--,
 	},

@@ -1,6 +1,7 @@
 return {
 	"AckslD/nvim-neoclip.lua",
-	event = "TextYankPost", -- "VeryLazy", -- "TextYankPost",
+	enabled = true,
+	event = "TextYankPost",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
 		{

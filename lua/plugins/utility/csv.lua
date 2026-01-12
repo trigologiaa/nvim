@@ -1,5 +1,11 @@
 return {
 	"hat0uma/csvview.nvim",
+	enabled = true,
+	cmd = {
+		"CsvViewEnable",
+		"CsvViewDisable",
+		"CsvViewToggle",
+	},
 	opts = {
 		parser = {
 			comments = {
@@ -51,10 +57,5 @@ return {
 				},
 			},
 		},
-	},
-	cmd = {
-		"CsvViewEnable",
-		"CsvViewDisable",
-		"CsvViewToggle",
 	},
 }

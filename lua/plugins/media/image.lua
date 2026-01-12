@@ -1,6 +1,7 @@
 return {
 	"3rd/image.nvim",
-  ft = "markdown",
+	enabled = true,
+	ft = "markdown",
 	build = false,
 	opts = {
 		backend = "kitty",
