@@ -1,5 +1,6 @@
 return {
 	"fei6409/log-highlight.nvim",
+	enabled = true,
 	event = {
 		"BufReadPost",
 		"BufNewFile",

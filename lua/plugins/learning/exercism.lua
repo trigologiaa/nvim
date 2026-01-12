@@ -1,5 +1,6 @@
 return {
 	"2kabhishek/exercism.nvim",
+	enabled = true,
 	cmd = "Exercism",
 	dependencies = {
 		"2kabhishek/utils.nvim",

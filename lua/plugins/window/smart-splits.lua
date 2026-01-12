@@ -1,5 +1,6 @@
 return {
 	"mrjones2014/smart-splits.nvim",
+	enabled = true,
 	build = "./kitty/install-kittens.bash",
 	opts = {
 		ignored_buftypes = {

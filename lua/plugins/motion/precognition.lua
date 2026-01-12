@@ -1,5 +1,6 @@
 return {
 	"tris203/precognition.nvim",
+	enabled = true,
 	event = "BufReadPost",
 	opts = {
 		startVisible = true,

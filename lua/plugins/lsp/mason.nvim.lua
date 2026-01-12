@@ -1,5 +1,6 @@
 return {
 	"mason-org/mason.nvim",
+	enabled = true,
 	event = "VeryLazy",
 	opts = {
 		PATH = "prepend",
@@ -23,10 +24,10 @@ return {
 		},
 		ui = {
 			check_outdated_packages_on_open = true,
-			border = nil,
+			border = "rounded",
 			backdrop = 60,
 			width = 0.8,
-			height = 0.9,
+			height = 0.8,
 			icons = {
 				package_installed = "✓",
 				package_pending = "➜",

@@ -1,5 +1,6 @@
 return {
 	"luxvim/nvim-luxterm",
+	enabled = true,
 	event = "VeryLazy",
 	opts = {
 		manager_width = 0.8,

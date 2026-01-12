@@ -1,5 +1,6 @@
 return {
 	"onsails/lspkind.nvim",
+	enabled = true,
 	event = "InsertEnter",
 	opts = {
 		mode = "symbol_text",

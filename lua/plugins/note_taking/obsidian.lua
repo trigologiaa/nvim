@@ -1,5 +1,6 @@
 return {
 	"obsidian-nvim/obsidian.nvim",
+	enabled = true,
 	version = "*",
 	ft = "markdown",
 	opts = {

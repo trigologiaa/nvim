@@ -1,5 +1,6 @@
 return {
 	"mason-org/mason-lspconfig.nvim",
+	enabled = true,
 	event = {
 		"BufReadPre",
 		"BufNewFile",

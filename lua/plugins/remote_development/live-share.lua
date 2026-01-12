@@ -1,5 +1,6 @@
 return {
 	"azratul/live-share.nvim",
+	enabled = true,
 	cmd = {
 		"LiveShareServer",
 		"LiveShareJoin",

@@ -1,5 +1,6 @@
 return {
 	"nvim-mini/mini.surround",
+	enabled = true,
 	version = false,
 	event = "BufReadPre",
 	opts = {

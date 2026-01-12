@@ -1,5 +1,6 @@
 return {
 	"pwntester/octo.nvim",
+	enabled = true,
 	cmd = "Octo",
 	opts = {
 		picker = "telescope",
