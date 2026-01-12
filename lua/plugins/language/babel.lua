@@ -1,5 +1,6 @@
 return {
 	"acidsugarx/babel.nvim",
+	enabled = true,
 	version = "*",
 	cmd = {
 		"Babel",
@@ -10,7 +11,7 @@ return {
 		target = "es",
 		provider = "google",
 		display = "float",
-		picker = "auto",
+		picker = "telescope",
 		float = {
 			border = "rounded",
 			max_width = 80,
