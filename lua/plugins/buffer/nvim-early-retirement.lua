@@ -4,7 +4,7 @@ return {
 	config = true,
 	event = "BufReadPost",
 	opts = {
-		retirementAgeMins = 20,
+		retirementAgeMins = 10,
 		ignoredFiletypes = {
 			"lazy",
 		},
