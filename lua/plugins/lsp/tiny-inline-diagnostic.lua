@@ -1,6 +1,7 @@
 return {
 	"rachartier/tiny-inline-diagnostic.nvim",
-  event = "BufReadPost",
+	enabled = true,
+	event = "BufReadPost",
 	opts = {
 		preset = "modern",
 		transparent_bg = true,
