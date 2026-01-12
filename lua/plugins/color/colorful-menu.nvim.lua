@@ -9,6 +9,9 @@ return {
 				add_colon_before_type = false,
 				preserve_type_when_truncate = false,
 			},
+			lua_ls = {
+				arguments_hl = "@comment",
+			},
 		},
 		fallback_highlight = "@variable",
 		max_width = 60,
