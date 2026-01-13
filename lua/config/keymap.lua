@@ -153,6 +153,7 @@ map("n", "<leader>tt", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<
 -- u: UI / Appearance
 map("n", "<leader>u", "", "UI / Appearance")
 map("n", "<leader>uc", require("config.functions").toggle_cursor_animation, "toggle [c]ursor animation")
+map("n", "<leader>ud", require("config.functions").toggle_diagnostics, "toggle [d]iagnostics")
 map("n", "<leader>uf", require("config.functions").toggle_autoformat, "toggle auto[f]ormat")
 map("n", "<leader>uh", require("config.functions").toggle_inlay_hints, "toggle inlay [h]ints")
 map("n", "<leader>um", require("config.functions").toggle_motion_hints, "toggle [m]otion hints")

@@ -21,6 +21,23 @@ M.toggle_cursor_animation = function()
 	end
 end
 
+M.toggle_diagnostics = function()
+	local tiny_ok, tiny_diag = pcall(require, "tiny-inline-diagnostic")
+	if vim.diagnostic.is_enabled() then
+		vim.diagnostic.enable(false)
+		if tiny_ok then
+			tiny_diag.disable()
+		end
+		vim.notify("Diagnostics disabled", vim.log.levels.WARN, { title = "UI" })
+	else
+		vim.diagnostic.enable(true)
+		if tiny_ok then
+			tiny_diag.enable()
+		end
+		vim.notify("Diagnostics enabled", vim.log.levels.INFO, { title = "UI" })
+	end
+end
+
 M.toggle_autoformat = function()
 	if vim.g.disable_autoformat then
 		vim.g.disable_autoformat = false
@@ -35,7 +52,7 @@ M.toggle_inlay_hints = function()
 	local is_enabled = vim.lsp.inlay_hint.is_enabled()
 	if is_enabled then
 		vim.lsp.inlay_hint.enable(false)
-		vim.notify("Inlay Hints disabled", vim.log.levels.INFO, { title = "UI" })
+		vim.notify("Inlay Hints disabled", vim.log.levels.WARN, { title = "UI" })
 	else
 		vim.lsp.inlay_hint.enable(true)
 		vim.notify("Inlay Hints enabled", vim.log.levels.INFO, { title = "UI" })
@@ -82,6 +99,7 @@ M.toggle_ui = function()
 	M.toggle_autoformat()
 	M.toggle_cursor_animation()
 	M.toggle_transparency()
+	M.toggle_diagnostics()
 	vim.notify("trigologiaa: UI toggled", vim.log.levels.INFO, { title = "UI" })
 end
 
@@ -114,10 +132,10 @@ M.toggle_zen_mode = function()
 	end
 	if vim.g.zen_mode_enabled then
 		vim.g.zen_mode_enabled = false
-		vim.notify("Zen Mode deactivated", vim.log.levels.WARN, { title = "UI" })
+		vim.notify("Zen Mode disabled", vim.log.levels.WARN, { title = "UI" })
 	else
 		vim.g.zen_mode_enabled = true
-		vim.notify("Zen Mode activated", vim.log.levels.INFO, { title = "UI" })
+		vim.notify("Zen Mode enabled", vim.log.levels.INFO, { title = "UI" })
 	end
 end
 
@@ -125,6 +143,7 @@ M.execute_current_file = function()
 	local supported_filetypes = {
 		go = "go run ",
 		lua = "lua ",
+		python = "python3 ",
 	}
 	local ft = vim.bo.filetype
 	local cmd_prefix = supported_filetypes[ft]
@@ -207,6 +226,8 @@ M.lint_file = function()
 		command = "golangci-lint run " .. vim.fn.expand("%:p:h")
 	elseif ft == "lua" then
 		command = "selene " .. file
+	elseif ft == "python" then
+		command = "ruff check " .. file
 	else
 		vim.notify("No linter configured for filetype: " .. ft, vim.log.levels.WARN)
 		return
