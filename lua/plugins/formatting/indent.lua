@@ -1,6 +1,7 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
 	enabled = true,
+	event = "BufReadPost",
 	dependencies = "HiPhish/rainbow-delimiters.nvim",
 	main = "ibl",
 	config = function()

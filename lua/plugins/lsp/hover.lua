@@ -1,7 +1,7 @@
 return {
 	"lewis6991/hover.nvim",
 	enabled = true,
-	-- event = "BufReadPost",
+	event = "BufReadPost",
 	opts = {
 		providers = {
 			-- "hover.providers.diagnostic",

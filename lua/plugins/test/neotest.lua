@@ -1,9 +1,11 @@
 return {
 	"nvim-neotest/neotest",
 	enabled = true,
+	event = "VeryLazy",
 	ft = {
 		"go",
 		"lua",
+		"python",
 	},
 	dependencies = {
 		"nvim-neotest/nvim-nio",
