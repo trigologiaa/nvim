@@ -18,7 +18,7 @@ return {
 		},
 		automatic_installation = true,
 		diagnostics = {
-			virtual_text = false, -- for tiny-inline-diagnostic plugin
+			virtual_text = true,
 		},
 	},
 }
