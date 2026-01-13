@@ -28,6 +28,7 @@ return {
 			".github",
 			"lua",
 			".nvim.lua",
+			"py",
 		},
 		allow_patterns_for_lsp = false,
 		allow_different_owners = false,
