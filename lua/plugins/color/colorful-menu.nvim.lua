@@ -12,6 +12,10 @@ return {
 			lua_ls = {
 				arguments_hl = "@comment",
 			},
+			pyright = {
+				extra_info_hl = "@comment",
+				arguments_hl = "@comment",
+			},
 		},
 		fallback_highlight = "@variable",
 		max_width = 60,
