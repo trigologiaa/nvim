@@ -181,14 +181,13 @@ M.generate_doc_comment = function()
 			or type:match("class")
 			or type:match("function_item")
 			or type:match("package_clause")
-			or type:match("function_definition")
 		then
 			break
 		end
 		node = node:parent()
 	end
 	if not node then
-		vim.notify("No function/method/class/package definition detected", vim.log.levels.WARN)
+		vim.notify("No definition detected", vim.log.levels.WARN)
 		return
 	end
 	local name = ""
@@ -197,8 +196,6 @@ M.generate_doc_comment = function()
 			child:type() == "identifier"
 			or child:type() == "name"
 			or child:type() == "field_identifier"
-			or child:type() == "dot_index_expression"
-			or child:type() == "method_index_expression"
 			or child:type() == "type_identifier"
 			or child:type() == "package_identifier"
 		then
@@ -209,13 +206,24 @@ M.generate_doc_comment = function()
 	local formats = {
 		go = "// %s ...",
 		lua = "--- %s ...",
+		python = '"""%s: ... """',
 	}
-	local format = formats[ft] or "// %s ..."
+	local default_comment = (ft == "python") and '"""%s: ... """' or "// %s ..."
+	local format = formats[ft] or default_comment
 	local comment = string.format(format, name)
 	local start_row, _, _, _ = node:range()
-	local lines = vim.split(comment, "\n")
-	vim.api.nvim_buf_set_lines(0, start_row, start_row, false, lines)
-	vim.api.nvim_win_set_cursor(0, { start_row + 1, #lines[1] })
+	if ft == "python" then
+		local current_indent = vim.fn.indent(start_row + 1)
+		local sw = vim.bo.shiftwidth
+		local padding = string.rep(" ", current_indent + sw)
+		local python_comment = padding .. comment
+		vim.api.nvim_buf_set_lines(0, start_row + 1, start_row + 1, false, { python_comment })
+		vim.api.nvim_win_set_cursor(0, { start_row + 2, #python_comment })
+	else
+		local lines = vim.split(comment, "\n")
+		vim.api.nvim_buf_set_lines(0, start_row, start_row, false, lines)
+		vim.api.nvim_win_set_cursor(0, { start_row + 1, #lines[1] })
+	end
 end
 
 M.lint_file = function()
