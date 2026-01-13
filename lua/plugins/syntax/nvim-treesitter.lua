@@ -20,6 +20,8 @@ return {
 			"lua",
 			"luadoc",
 			"python",
+			"java",
+			"javadoc",
 		},
 		install_dir = vim.fn.stdpath("data") .. "/site",
 		highlight = {
