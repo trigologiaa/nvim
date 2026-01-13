@@ -16,6 +16,7 @@ return {
 		},
 		"nvim-neotest/neotest-plenary",
 		"nvim-neotest/neotest-vim-test",
+		"nvim-neotest/neotest-python",
 		{
 			"fredrikaverpil/neotest-golang",
 			version = "*",
@@ -31,6 +32,17 @@ return {
 	},
 	opts = function(_, opts)
 		opts.adapters = opts.adapters or {}
+		opts.adapters["neotest-python"] = {
+			dap = {
+				justMyCode = false,
+			},
+			args = {
+				"--log-level",
+				"DEBUG",
+			},
+			runner = "pytest",
+			python = ".venv/bin/python",
+		}
 		opts.adapters["neotest-busted"] = {
 			busted_command = "busted",
 			no_nvim = true,
