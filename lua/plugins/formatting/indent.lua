@@ -30,6 +30,8 @@ return {
 		require("ibl").setup({
 			scope = {
 				highlight = highlight,
+				show_start = false,
+				show_end = false,
 			},
 			indent = {
 				char = "│",
