@@ -85,4 +85,41 @@ vim.lsp.config["lua_ls"] = {
 
 vim.lsp.enable("lua_ls")
 
+vim.lsp.config["r_language_server"] = {
+	cmd = {
+		"R",
+		"--no-echo",
+		"-e",
+		"languageserver::run()",
+	},
+	filetypes = {
+		"r",
+		"rmd",
+		"quarto",
+	},
+	-- root_dir = {}
+}
+
+vim.lsp.enable("r_language_server")
+
+vim.lsp.config["pyright"] = {
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+				typeCheckingMode = "basic",
+			},
+			inlayHints = {
+				variableTypes = true,
+				functionReturnTypes = true,
+				genericTypes = true,
+				parameterNames = true,
+			},
+		},
+	},
+}
+
+vim.lsp.enable("pyright")
+
 vim.lsp.inlay_hint.enable(true)
