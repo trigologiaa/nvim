@@ -12,6 +12,9 @@ return {
 			lua = {
 				"stylua",
 			},
+			python = {
+				"black",
+			},
 		},
 		format_on_save = function()
 			if vim.g.disable_autoformat then
