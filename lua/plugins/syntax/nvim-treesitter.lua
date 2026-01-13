@@ -19,6 +19,7 @@ return {
 			"diff",
 			"lua",
 			"luadoc",
+			"python",
 		},
 		install_dir = vim.fn.stdpath("data") .. "/site",
 		highlight = {
@@ -40,6 +41,13 @@ return {
 				-- Active Folds
 				-- vim.wo.foldmethod = "expr"
 				-- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+			end,
+		})
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "python",
+			callback = function(ev)
+				pcall(vim.treesitter.start, ev.buf, "python")
+				vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 			end,
 		})
 	end,
