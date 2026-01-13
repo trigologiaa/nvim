@@ -12,6 +12,9 @@ return {
 	opts = {
 		ensure_installed = {
 			"gopls",
+			"lua_ls",
+			"pyright",
+			"r-languageserver",
 		},
 		automatic_installation = true,
 		diagnostics = {
