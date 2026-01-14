@@ -14,11 +14,16 @@ return {
 			"gopls",
 			"lua_ls",
 			"pyright",
-			"r-languageserver",
+			"r_language_server",
 		},
 		automatic_installation = true,
 		diagnostics = {
 			virtual_text = true,
+		},
+		automatic_enable = {
+			exclude = {
+				"jdtls",
+			},
 		},
 	},
 }

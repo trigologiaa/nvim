@@ -15,6 +15,9 @@ return {
 			python = {
 				"black",
 			},
+			java = {
+				"google-java-format",
+			},
 		},
 		format_on_save = function()
 			if vim.g.disable_autoformat then

@@ -271,4 +271,20 @@ M.new_file = function()
 	end)
 end
 
+M.generate_maven_project = function()
+	if vim.bo.buftype ~= "" then
+		vim.cmd("enew")
+	end
+	local ok, err = pcall(function()
+		vim.cmd("LuxtermNew")
+		vim.defer_fn(function()
+			local enter = vim.api.nvim_replace_termcodes("<CR>", true, false, true)
+			vim.api.nvim_feedkeys("mvn archetype:generate" .. enter, "t", false)
+		end, 50)
+	end)
+	if not ok then
+		vim.notify("Error executing Luxterm: " .. tostring(err), vim.log.levels.ERROR)
+	end
+end
+
 return M

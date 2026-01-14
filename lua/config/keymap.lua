@@ -82,6 +82,9 @@ map("n", "<leader>i", "", "Insert / Image")
 map("n", "<leader>ip", "<cmd>PasteImage<CR>", "[p]aste image")
 map("n", "<leader>ia", "<cmd>lua require('nvim-autopairs').toggle()<CR>", "toggle [a]uto-pairs")
 
+map("n", "<leader>j", "", "Java")
+map("n", "<leader>jp", require("config.functions").generate_maven_project, "create maven [p]roject")
+
 -- l: LSP / Lazy
 map("n", "<leader>l", "", "LSP / Lazy")
 map("n", "<leader>lc", "<cmd>checkhealth vim.lsp<CR>", "run LSP [c]heckhealth")

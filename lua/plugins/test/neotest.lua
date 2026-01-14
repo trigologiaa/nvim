@@ -6,31 +6,19 @@ return {
 		"go",
 		"lua",
 		"python",
+		"java",
 	},
 	dependencies = {
 		"nvim-neotest/nvim-nio",
 		"MisanthropicBit/neotest-busted",
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
-		{
-			"nvim-treesitter/nvim-treesitter",
-			branch = "main",
-		},
+		"nvim-treesitter/nvim-treesitter",
 		"nvim-neotest/neotest-plenary",
 		"nvim-neotest/neotest-vim-test",
 		"nvim-neotest/neotest-python",
-		{
-			"fredrikaverpil/neotest-golang",
-			version = "*",
-			dependencies = {
-				{
-					"leoluz/nvim-dap-go",
-					opts = {
-						--,
-					},
-				},
-			},
-		},
+		"fredrikaverpil/neotest-golang",
+		"rcasia/neotest-java",
 	},
 	opts = function(_, opts)
 		opts.adapters = opts.adapters or {}
@@ -56,10 +44,6 @@ return {
 				"./lua/?.lua",
 				"./spec/?.lua",
 			},
-			-- busted_cpaths = {
-			--   "",
-			-- },
-			-- minimal_init = nil,
 			parametric_test_discovery = false,
 			local_luarocks_only = false,
 		}
@@ -69,6 +53,10 @@ return {
 				"-race",
 				"-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
 			},
+		}
+		opts.adapters["neotest-java"] = {
+			incremental_build = true,
+			jvm_args = {},
 		}
 	end,
 	config = function(_, opts)

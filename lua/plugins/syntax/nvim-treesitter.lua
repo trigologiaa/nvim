@@ -22,6 +22,8 @@ return {
 			"python",
 			"java",
 			"javadoc",
+			"xml",
+			"c",
 		},
 		install_dir = vim.fn.stdpath("data") .. "/site",
 		highlight = {
