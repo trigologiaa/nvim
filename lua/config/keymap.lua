@@ -56,9 +56,10 @@ map("n", "<leader>e", "<cmd>Yazi<CR>", "yazi [e]xplorer")
 
 -- f: Find / File
 map("n", "<leader>f", "", "Find / File")
-map("n", "<leader>ff", "<cmd>FzfLua<CR>", "[f]zf")
+map("n", "<leader>ff", "<cmd>Telescope find_files<CR>", "[f]ind")
 map("n", "<leader>fn", require("config.functions").new_file, "[n]ew archive in actual dir")
 map("n", "<leader>ft", "<cmd>Telescope<CR>", "[t]elescope")
+map("n", "<leader>fz", "<cmd>FzfLua<CR>", "f[z]f")
 
 -- g: Git / GitHub / GitLab
 map("n", "<leader>g", "", "Git / GitHub / GitLab")
