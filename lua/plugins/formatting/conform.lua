@@ -18,6 +18,9 @@ return {
 			java = {
 				"google-java-format",
 			},
+			c = {
+				"clang-format",
+			},
 		},
 		format_on_save = function()
 			if vim.g.disable_autoformat then
