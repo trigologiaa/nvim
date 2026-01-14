@@ -24,6 +24,7 @@ return {
 			"javadoc",
 			"xml",
 			"c",
+			"make",
 		},
 		install_dir = vim.fn.stdpath("data") .. "/site",
 		highlight = {
