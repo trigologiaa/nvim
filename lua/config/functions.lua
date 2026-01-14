@@ -1,5 +1,62 @@
 local M = {}
 
+local function get_lint_command(ft, file)
+	local is_maven = vim.fn.findfile("pom.xml", ".;") ~= ""
+	local cmds = {
+		go = "golangci-lint run " .. vim.fn.expand("%:p:h"),
+		lua = "selene " .. file,
+		python = "ruff check " .. file,
+		r = "Rscript -e \"lintr::lint('" .. file .. "')\"",
+		c = "cpplint " .. file,
+		java = is_maven and "mvn checkstyle:check" or "echo 'pom.xml not detected for checkstyle'",
+	}
+	return cmds[ft]
+end
+
+local function get_java_run_command(file)
+	local is_maven = vim.fn.findfile("pom.xml", ".;") ~= ""
+	if not is_maven then
+		return "java " .. file
+	end
+	local lines = vim.fn.readfile(file)
+	local package = ""
+	local class = vim.fn.expand("%:t:r")
+	for _, line in ipairs(lines) do
+		local p = line:match("^package%s+([%w%.]+);")
+		if p then
+			package = p .. "."
+			break
+		end
+	end
+	local full_class = package .. class
+	return string.format('mvn compile exec:java -Dexec.mainClass="%s"', full_class)
+end
+
+local function get_c_run_command(file)
+	local has_makefile = vim.fn.filereadable("Makefile") == 1
+	if has_makefile then
+		if vim.fn.filereadable("bin/app") == 1 then
+			return "make && bin/app"
+		end
+		local binary_name = vim.fn.expand("%:t:r")
+		return "make && ./" .. binary_name
+	else
+		return "gcc " .. file .. " -o /tmp/main && /tmp/main"
+	end
+end
+
+local function get_run_command(ft, file)
+	local cmds = {
+		go = "go run " .. file,
+		lua = "lua " .. file,
+		python = "python " .. file,
+		r = "Rscript " .. file,
+		c = get_c_run_command(file),
+		java = get_java_run_command(file),
+	}
+	return cmds[ft]
+end
+
 M.toggle_cursor_animation = function()
 	local status, _ = pcall(vim.cmd, "SmearCursorToggle")
 	if not status then
@@ -140,24 +197,19 @@ M.toggle_zen_mode = function()
 end
 
 M.execute_current_file = function()
-	local supported_filetypes = {
-		go = "go run ",
-		lua = "lua ",
-		python = "python3 ",
-	}
 	local ft = vim.bo.filetype
-	local cmd_prefix = supported_filetypes[ft]
-	if not cmd_prefix then
+	local file = vim.fn.expand("%:p")
+	local command = get_run_command(ft, file)
+	if not command then
 		vim.notify("Filetype '" .. ft .. "' is not supported for execution", vim.log.levels.WARN)
 		return
 	end
 	vim.cmd("silent write")
-	local file = vim.fn.expand("%:p")
 	local status, err = pcall(function()
 		vim.cmd("LuxtermNew")
 		vim.defer_fn(function()
 			local enter = vim.api.nvim_replace_termcodes("<CR>", true, false, true)
-			vim.api.nvim_feedkeys(cmd_prefix .. file .. enter, "t", false)
+			vim.api.nvim_feedkeys(command .. enter, "t", false)
 		end, 50)
 	end)
 	if not status then
@@ -229,14 +281,8 @@ end
 M.lint_file = function()
 	local ft = vim.bo.filetype
 	local file = vim.fn.expand("%:p")
-	local command = ""
-	if ft == "go" then
-		command = "golangci-lint run " .. vim.fn.expand("%:p:h")
-	elseif ft == "lua" then
-		command = "selene " .. file
-	elseif ft == "python" then
-		command = "ruff check " .. file
-	else
+	local command = get_lint_command(ft, file)
+	if not command then
 		vim.notify("No linter configured for filetype: " .. ft, vim.log.levels.WARN)
 		return
 	end
