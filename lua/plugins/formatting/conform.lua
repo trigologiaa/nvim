@@ -29,6 +29,8 @@ return {
 			},
 			javascript = {
 				"standardjs",
+				"prettier",
+				stop_after_first = true,
 			},
 			typescript = {
 				"prettier",
