@@ -189,6 +189,7 @@ vim.lsp.config["sqls"] = {
 }
 vim.lsp.enable("sqls")
 
+-- Markdown
 vim.lsp.config["markdown_oxide"] = {
 	cmd = {
 		"markdown-oxide",
@@ -204,5 +205,26 @@ vim.lsp.config["markdown_oxide"] = {
 	},
 }
 vim.lsp.enable("markdown_oxide")
+
+-- JavaScript/TypeScript
+vim.lsp.config["vtsls"] = {
+	cmd = {
+		"vtsls",
+		"--stdio",
+	},
+	filetypes = {
+		"typescript",
+		"javascript",
+		"javascriptreact",
+		"typescriptreact",
+		"javascript.jsx",
+		"typescript.tsx",
+	},
+	init_options = {
+		hostInfo = "neovim",
+	},
+	-- root_dir = nil,
+}
+vim.lsp.enable("vtsls")
 
 vim.lsp.inlay_hint.enable(true)
