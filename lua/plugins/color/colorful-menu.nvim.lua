@@ -22,6 +22,12 @@ return {
 				import_dot_hl = "@comment",
 				preserve_type_when_truncape = true,
 			},
+			vtsls = {
+				extra_info_hl = "@comment",
+			},
+			ts_ls = {
+				extra_info_hl = "@comment",
+			},
 		},
 		fallback_highlight = "@variable",
 		max_width = 60,
