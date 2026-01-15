@@ -173,4 +173,20 @@ vim.lsp.config["clangd"] = {
 }
 vim.lsp.enable("clangd")
 
+-- SQL
+vim.lsp.config["sqls"] = {
+	cmd = {
+		"sqls",
+	},
+	filetypes = {
+		"sql",
+		"mysql",
+	},
+	root_markers = {
+		"config.yml",
+	},
+	settings = {},
+}
+vim.lsp.enable("sqls")
+
 vim.lsp.inlay_hint.enable(true)
