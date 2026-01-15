@@ -189,4 +189,20 @@ vim.lsp.config["sqls"] = {
 }
 vim.lsp.enable("sqls")
 
+vim.lsp.config["markdown_oxide"] = {
+	cmd = {
+		"markdown-oxide",
+	},
+	filetype = {
+		"markdown",
+	},
+	-- on_attach = nil,
+	root_markers = {
+		".git",
+		".obdsidian",
+		".moxide.toml",
+	},
+}
+vim.lsp.enable("markdown_oxide")
+
 vim.lsp.inlay_hint.enable(true)
