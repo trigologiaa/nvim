@@ -7,6 +7,8 @@ return {
 		"lua",
 		"python",
 		"java",
+		"javascript",
+		"typescript",
 	},
 	dependencies = {
 		"nvim-neotest/nvim-nio",
@@ -19,45 +21,15 @@ return {
 		"nvim-neotest/neotest-python",
 		"fredrikaverpil/neotest-golang",
 		"rcasia/neotest-java",
+		"nvim-neotest/neotest-jest",
 	},
 	opts = function(_, opts)
 		opts.adapters = opts.adapters or {}
-		opts.adapters["neotest-python"] = {
-			dap = {
-				justMyCode = false,
-			},
-			args = {
-				"--log-level",
-				"DEBUG",
-			},
-			runner = "pytest",
-			python = ".venv/bin/python",
-		}
-		opts.adapters["neotest-busted"] = {
-			busted_command = "busted",
-			no_nvim = true,
-			busted_args = {
-				"--shuffle-files",
-			},
-			busted_paths = {
-				"./?.lua",
-				"./lua/?.lua",
-				"./spec/?.lua",
-			},
-			parametric_test_discovery = false,
-			local_luarocks_only = false,
-		}
-		opts.adapters["neotest-golang"] = {
-			go_test_args = {
-				"-v",
-				"-race",
-				"-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
-			},
-		}
-		opts.adapters["neotest-java"] = {
-			incremental_build = true,
-			jvm_args = {},
-		}
+		opts.adapters["neotest-jest"] = require("config.test.jest")
+		opts.adapters["neotest-python"] = require("config.test.pytest")
+		opts.adapters["neotest-busted"] = require("config.test.busted")
+		opts.adapters["neotest-golang"] = require("config.test.golang")
+		opts.adapters["neotest-java"] = require("config.test.java")
 	end,
 	config = function(_, opts)
 		if opts.adapters then
