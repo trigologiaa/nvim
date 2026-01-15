@@ -21,6 +21,12 @@ return {
 			c = {
 				"clang-format",
 			},
+			sql = {
+				"sqruff",
+			},
+			r = {
+				"air",
+			},
 		},
 		format_on_save = function()
 			if vim.g.disable_autoformat then
