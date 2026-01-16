@@ -35,6 +35,9 @@ return {
 			typescript = {
 				"prettier",
 			},
+			ruby = {
+				"rubocop",
+			},
 		},
 		format_on_save = function()
 			if vim.g.disable_autoformat then
