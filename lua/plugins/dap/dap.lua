@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"mfussenegger/nvim-dap-python",
 		"rcarriga/nvim-dap-ui",
+		"suketa/nvim-dap-ruby",
 	},
 	enabled = true,
 	ft = {
@@ -18,6 +19,7 @@ return {
 		local dap = require("dap")
 		local debugpy_path = vim.fn.expand("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
 		require("dap-python").setup(debugpy_path)
+		require("dap-ruby").setup()
 		require("dap-python").test_runner = "pytest"
 		local mason_pkg_path = vim.fn.expand("~/.local/share/nvim/mason/packages/local-lua-debugger-vscode/extension/")
 		local adapter_path = mason_pkg_path .. "extension/debugAdapter.js"
