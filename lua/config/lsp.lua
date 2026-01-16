@@ -227,4 +227,24 @@ vim.lsp.config["vtsls"] = {
 }
 vim.lsp.enable("vtsls")
 
+-- Ruby
+vim.lsp.config["ruby_lsp"] = {
+	cmd = {
+		"ruby-lsp",
+	},
+	filetypes = {
+		"ruby",
+		"eruby",
+	},
+	init_options = {
+		formatter = "auto",
+	},
+	-- reuse_client = nil,
+	root_markers = {
+		"Gemfile",
+		".git",
+	},
+}
+vim.lsp.enable("ruby_lsp")
+
 vim.lsp.inlay_hint.enable(true)
