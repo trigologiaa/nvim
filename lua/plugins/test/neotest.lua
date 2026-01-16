@@ -22,6 +22,8 @@ return {
 		"fredrikaverpil/neotest-golang",
 		"rcasia/neotest-java",
 		"nvim-neotest/neotest-jest",
+		"volodya-lombrozo/neotest-ruby-minitest",
+		"olimorris/neotest-rspec",
 	},
 	opts = function(_, opts)
 		opts.adapters = opts.adapters or {}
@@ -30,6 +32,8 @@ return {
 		opts.adapters["neotest-busted"] = require("config.test.busted")
 		opts.adapters["neotest-golang"] = require("config.test.golang")
 		opts.adapters["neotest-java"] = require("config.test.java")
+		opts.adapters["neotest-ruby-minitest"] = require("config.test.minitest")
+		opts.adapters["neotest-rspec"] = require("config.test.rspec")
 	end,
 	config = function(_, opts)
 		if opts.adapters then
