@@ -237,7 +237,10 @@ vim.lsp.config["ruby_lsp"] = {
 		"eruby",
 	},
 	init_options = {
-		formatter = "auto",
+		formatter = "rubocop",
+		linters = {
+			"rubocop",
+		},
 	},
 	-- reuse_client = nil,
 	root_markers = {
