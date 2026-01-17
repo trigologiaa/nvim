@@ -250,9 +250,9 @@ vim.lsp.config["ruby_lsp"] = {
 }
 vim.lsp.enable("ruby_lsp")
 
+-- HTML
 local capabilitiesHTML = vim.lsp.protocol.make_client_capabilities()
 capabilitiesHTML.textDocument.completion.completionItem.snippetSupport = true
-
 vim.lsp.config["html"] = {
 	cmd = {
 		"vscode-html-language-server",
