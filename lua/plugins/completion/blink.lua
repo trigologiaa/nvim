@@ -1,6 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	enabled = true,
+	event = "InsertEnter",
 	dependencies = {
 		"onsails/lspkind.nvim",
 		"xzbdmw/colorful-menu.nvim",
