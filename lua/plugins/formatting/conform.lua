@@ -37,6 +37,9 @@ return {
 			ruby = {
 				"rubocop",
 			},
+			html = {
+				"prettier",
+			},
 		},
 		format_on_save = function()
 			if vim.g.disable_autoformat then
