@@ -250,4 +250,37 @@ vim.lsp.config["ruby_lsp"] = {
 }
 vim.lsp.enable("ruby_lsp")
 
+local capabilitiesHTML = vim.lsp.protocol.make_client_capabilities()
+capabilitiesHTML.textDocument.completion.completionItem.snippetSupport = true
+
+vim.lsp.config["html"] = {
+	cmd = {
+		"vscode-html-language-server",
+		"--stdio",
+	},
+	filetypes = {
+		"html",
+		"templ",
+	},
+	init_options = {
+		configurationSection = {
+			"html",
+			"css",
+			"javascript",
+		},
+		embeddedLanguages = {
+			css = true,
+			javascript = true,
+		},
+		provideFormatter = true,
+	},
+	root_markers = {
+		"package.json",
+		".git",
+	},
+	settings = {},
+	capabilities = capabilitiesHTML,
+}
+vim.lsp.enable("html")
+
 vim.lsp.inlay_hint.enable(true)
