@@ -9,7 +9,7 @@
   "blink-cmp-latex": { "branch": "main", "commit": "3a958361e275bb5996e8393e7b2595b2f40c15ca" },
   "blink-cmp-sshconfig": { "branch": "main", "commit": "91bf9bd80d53d2b6521cffb01da138ef6403d625" },
   "blink-emoji.nvim": { "branch": "master", "commit": "066013e4c98a9318408ee3f1ca2dbcb6fa3e4c06" },
-  "blink-ripgrep.nvim": { "branch": "main", "commit": "0ee1dfb91192dac7703cf372e5127ce98293abf8" },
+  "blink-ripgrep.nvim": { "branch": "main", "commit": "58405d8c19ad3dda16f7a67e17be1a422673332d" },
   "blink.cmp": { "branch": "main", "commit": "b19413d214068f316c78978b08264ed1c41830ec" },
   "catppuccin": { "branch": "main", "commit": "beaf41a30c26fd7d6c386d383155cbd65dd554cd" },
   "codediff.nvim": { "branch": "main", "commit": "9b3258557d92de7d2f03955066697ca62aabeb4e" },
