@@ -82,7 +82,6 @@ map("n", "<leader>hh", "<cmd>Hardtime toggle<CR>", "toggle [h]ard navigation")
 map("n", "<leader>i", "", "Insert / Image")
 map("n", "<leader>ip", "<cmd>PasteImage<CR>", "[p]aste image")
 map("n", "<leader>ia", "<cmd>lua require('nvim-autopairs').toggle()<CR>", "toggle [a]uto-pairs")
-
 map("n", "<leader>j", "", "Java")
 map("n", "<leader>jp", require("config.functions").generate_maven_project, "create maven [p]roject")
 
@@ -120,10 +119,12 @@ map("n", "<leader>qs", "<cmd>confirm qall<CR>", "quit [s]aving")
 map("n", "<leader>r", "", "Refactor")
 map("n", "<leader>rr", vim.lsp.buf.rename, "[r]ename symbol")
 
--- s: Search / Store
-map("n", "<leader>s", "", "Search / Store")
+-- s: Search / SQL / Store
+map("n", "<leader>s", "", "Search / SQL / Store")
+map("n", "<leader>sc", "<cmd>DBConnect<CR>", "[c]onnect database (with credentials)")
 map("n", "<leader>sp", "<cmd>Store<CR>", "search [p]lugins")
 map("n", "<leader>st", "<cmd>Telescope live_grep<CR>", "search [t]ext")
+map("n", "<leader>su", "<cmd>DBUI<CR>", "database [u]i")
 
 -- t: Test
 map("n", "<leader>t", "", "Test")

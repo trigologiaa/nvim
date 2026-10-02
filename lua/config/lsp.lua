@@ -171,21 +171,6 @@ vim.lsp.config["clangd"] = {
 	},
 }
 
--- SQL
-vim.lsp.config["sqls"] = {
-	cmd = {
-		"sqls",
-	},
-	filetypes = {
-		"sql",
-		"mysql",
-	},
-	root_markers = {
-		"config.yml",
-	},
-	settings = {},
-}
-
 vim.lsp.config["eslint"] = {
 	cmd = {
 		"vscode-eslint-language-server",
@@ -319,19 +304,6 @@ vim.lsp.config["vue_ls"] = {
 	-- on_init = nil,
 	root_markers = {
 		"package.json",
-	},
-}
-
-vim.lsp.config["sqls"] = {
-	cmd = {
-		"sqls",
-	},
-	filetypes = {
-		"sql",
-		"mysql",
-	},
-	root_markers = {
-		"config.yml",
 	},
 }
 

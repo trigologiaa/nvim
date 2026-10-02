@@ -131,6 +131,9 @@ require("lazy").setup({
 		{
 			import = "plugins.icon",
 		},
+		{
+			import = "plugins.database",
+		},
 	},
 	install = {
 		colorscheme = {
