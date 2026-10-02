@@ -43,7 +43,6 @@ vim.lsp.config["gopls"] = {
 		},
 	},
 }
-vim.lsp.enable("go")
 
 -- Lua
 vim.lsp.config["lua_ls"] = {
@@ -83,38 +82,30 @@ vim.lsp.config["lua_ls"] = {
 		},
 	},
 }
-vim.lsp.enable("lua")
 
 -- Python
-vim.lsp.config["pyright"] = {
+vim.lsp.config["ruff"] = {
 	cmd = {
-		"pyright",
+		"ruff",
+		"server",
 	},
 	filetypes = {
 		"python",
 	},
 	root_markers = {
 		"pyproject.toml",
-		"setup.py",
+		"ruff.toml",
+		".ruff.toml",
 		".git",
 	},
-	settings = {
-		python = {
-			analysis = {
-				autoSearchPaths = true,
-				useLibraryCodeForTypes = true,
-				typeCheckingMode = "basic",
-			},
-			inlayHints = {
-				variableTypes = true,
-				functionReturnTypes = true,
-				genericTypes = true,
-				parameterNames = true,
+	init_options = {
+		settings = {
+			lint = {
+				enable = true,
 			},
 		},
 	},
 }
-vim.lsp.enable("python")
 
 -- R
 vim.lsp.config["r_language_server"] = {
@@ -134,7 +125,6 @@ vim.lsp.config["r_language_server"] = {
 		".Rproj.user",
 	},
 }
-vim.lsp.enable("r")
 
 -- C
 vim.lsp.config["clangd"] = {
@@ -149,8 +139,17 @@ vim.lsp.config["clangd"] = {
 			},
 		},
 	},
+	init_options = {
+		fallbackFlags = {
+			"-std=c++23",
+		},
+	},
 	cmd = {
 		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		"--header-insertion=never",
+		"--fallback-style=llvm",
 	},
 	filetypes = {
 		"c",
@@ -171,7 +170,6 @@ vim.lsp.config["clangd"] = {
 		".git",
 	},
 }
-vim.lsp.enable("clangd")
 
 -- SQL
 vim.lsp.config["sqls"] = {
@@ -187,7 +185,6 @@ vim.lsp.config["sqls"] = {
 	},
 	settings = {},
 }
-vim.lsp.enable("sqls")
 
 -- Markdown
 vim.lsp.config["markdown_oxide"] = {
@@ -204,28 +201,38 @@ vim.lsp.config["markdown_oxide"] = {
 		".moxide.toml",
 	},
 }
-vim.lsp.enable("markdown_oxide")
 
--- JavaScript/TypeScript
-vim.lsp.config["vtsls"] = {
+vim.lsp.config["eslint"] = {
 	cmd = {
-		"vtsls",
+		"vscode-eslint-language-server",
 		"--stdio",
 	},
 	filetypes = {
-		"typescript",
 		"javascript",
 		"javascriptreact",
+		"typescript",
 		"typescriptreact",
-		"javascript.jsx",
-		"typescript.tsx",
+		"vue",
+		"svelte",
+		"astro",
+		"htmlangular",
 	},
-	init_options = {
-		hostInfo = "neovim",
+	root_markers = {
+		".eslintrc.js",
+		".eslintrc.json",
+		"eslint.config.js",
+		"package.json",
+		".git",
 	},
-	-- root_dir = nil,
+	settings = {
+		experimental = {
+			useFlatConfig = true,
+		},
+		workingDirectories = {
+			mode = "location",
+		},
+	},
 }
-vim.lsp.enable("vtsls")
 
 -- Ruby
 vim.lsp.config["ruby_lsp"] = {
@@ -248,7 +255,6 @@ vim.lsp.config["ruby_lsp"] = {
 		".git",
 	},
 }
-vim.lsp.enable("ruby_lsp")
 
 -- HTML
 local capabilitiesHTML = vim.lsp.protocol.make_client_capabilities()
@@ -281,6 +287,68 @@ vim.lsp.config["html"] = {
 	settings = {},
 	capabilities = capabilitiesHTML,
 }
-vim.lsp.enable("html")
+
+-- ERB
+vim.lsp.config["herb_ls"] = {
+	cmd = {
+		"herb-language-server",
+		"--stdio",
+	},
+	filetypes = {
+		"html",
+		"eruby",
+	},
+	root_markers = {
+		"Gemfile",
+		".git",
+	},
+}
+
+vim.lsp.config["kotlin_language_server"] = {
+	cmd = {
+		"env",
+		"JAVA_HOME=/usr/lib/jvm/java-21-openjdk",
+		"/home/gaston/.local/share/nvim/mason/bin/kotlin-language-server",
+	},
+	filetypes = {
+		"kotlin",
+	},
+	init_options = {},
+	root_markers = {
+		"settings.gradle",
+		"settings.gradle.kts",
+		"build.xml",
+		"pom.xml",
+		"build.gradle",
+		"build.gradle.kts",
+	},
+}
+
+vim.lsp.config["vue_ls"] = {
+	cmd = {
+		"vue-language-server",
+		"--stdio",
+	},
+	filetypes = {
+		"vue",
+	},
+	-- on_init = nil,
+	root_markers = {
+		"package.json",
+	},
+}
+
+vim.lsp.config["sqls"] = {
+	cmd = {
+		"sqls",
+	},
+	filetypes = {
+		"sql",
+		"mysql",
+	},
+	root_markers = {
+		"config.yml",
+	},
+}
 
 vim.lsp.inlay_hint.enable(true)

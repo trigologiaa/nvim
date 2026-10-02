@@ -5,7 +5,6 @@ return {
 	opts = {
 		formatters_by_ft = {
 			go = {
-				"goimports",
 				"gofumpt",
 				"golines",
 			},
@@ -13,23 +12,24 @@ return {
 				"stylua",
 			},
 			python = {
-				"black",
+				"ruff_organize_imports",
+				"ruff_fix",
+				"ruff_format",
 			},
 			java = {
 				"google-java-format",
 			},
+			javascript = {
+				"prettier",
+			},
 			c = {
-				"clang-format",
+				"clang_format",
 			},
 			sql = {
 				"sqruff",
 			},
 			r = {
 				"air",
-			},
-			javascript = {
-				"prettier",
-				stop_after_first = true,
 			},
 			typescript = {
 				"prettier",
@@ -39,6 +39,13 @@ return {
 			},
 			html = {
 				"prettier",
+			},
+			markdown = {
+				"markdownlint-cli2",
+				"prettier",
+			},
+			erb = {
+				"erb_format",
 			},
 		},
 		format_on_save = function()

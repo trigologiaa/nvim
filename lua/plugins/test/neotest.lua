@@ -22,11 +22,13 @@ return {
 		"fredrikaverpil/neotest-golang",
 		"rcasia/neotest-java",
 		"nvim-neotest/neotest-jest",
+		"marilari88/neotest-vitest",
 		"volodya-lombrozo/neotest-ruby-minitest",
 		"olimorris/neotest-rspec",
 	},
 	opts = function(_, opts)
 		opts.adapters = opts.adapters or {}
+		opts.adapters["neotest-vitest"] = {}
 		opts.adapters["neotest-jest"] = require("config.test.jest")
 		opts.adapters["neotest-python"] = require("config.test.pytest")
 		opts.adapters["neotest-busted"] = require("config.test.busted")

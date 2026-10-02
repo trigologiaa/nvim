@@ -1,6 +1,6 @@
 return {
 	"Bekaboo/dropbar.nvim",
-	enabled = true,
+	enabled = false,
 	event = "BufReadPost",
 	opts = {
 		icons = {

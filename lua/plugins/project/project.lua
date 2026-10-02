@@ -20,8 +20,15 @@ return {
 		"ibhagwan/fzf-lua",
 	},
 	opts = {
-		use_lsp = true,
+		-- use_lsp = true,
 		manual_mode = false,
+		lsp = {
+			enabled = true,
+			use_pattern_matching = false,
+			ignore = {
+				--,
+			},
+		},
 		patterns = {
 			"go.mod",
 			".git",
@@ -30,13 +37,13 @@ return {
 			".nvim.lua",
 			"py",
 		},
-		allow_patterns_for_lsp = false,
+		-- allow_patterns_for_lsp = false,
 		allow_different_owners = false,
 		enable_autochdir = false,
 		show_hidden = false,
-		ignore_lsp = {
-			--,
-		},
+		-- ignore_lsp = {
+		--,
+		-- },
 		exclude_dirs = {
 			--,
 		},

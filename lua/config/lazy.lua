@@ -102,9 +102,6 @@ require("lazy").setup({
 			import = "plugins.utility",
 		},
 		{
-			import = "plugins.note_taking",
-		},
-		{
 			import = "plugins.animation",
 		},
 		{
@@ -132,7 +129,7 @@ require("lazy").setup({
 			import = "plugins.window",
 		},
 		{
-			import = "plugins.learning",
+			import = "plugins.icon",
 		},
 	},
 	install = {

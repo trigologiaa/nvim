@@ -12,14 +12,14 @@ return {
 		clipboard = "+",
 		prompts = {
 			create = {
-				private = false,
-				description = false,
-				confirmation = false,
+				private = true,
+				description = true,
+				confirmation = true,
 			},
 		},
 		platforms = {
 			github = {
-				private = false,
+				private = true,
 				cmd = "gh",
 				list = {
 					limit = nil,

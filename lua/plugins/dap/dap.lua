@@ -2,6 +2,7 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		"mfussenegger/nvim-dap-python",
+		"leoluz/nvim-dap-go",
 		"rcarriga/nvim-dap-ui",
 		"suketa/nvim-dap-ruby",
 	},
@@ -18,6 +19,7 @@ return {
 	config = function()
 		local dap = require("dap")
 		local debugpy_path = vim.fn.expand("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
+		require("dap-go").setup()
 		require("dap-python").setup(debugpy_path)
 		require("dap-ruby").setup()
 		require("dap-python").test_runner = "pytest"
