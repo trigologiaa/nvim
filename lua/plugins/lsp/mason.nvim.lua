@@ -3,7 +3,7 @@ return {
 	enabled = true,
 	event = "VeryLazy",
 	opts = {
-		PATH = "prepend",
+		PATH = "skip",
 		log_level = vim.log.levels.INFO,
 		max_concurrent_installers = 4,
 		registries = {

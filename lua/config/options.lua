@@ -1,3 +1,4 @@
+vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
