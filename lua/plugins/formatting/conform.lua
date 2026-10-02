@@ -34,9 +34,6 @@ return {
 			typescript = {
 				"prettier",
 			},
-			ruby = {
-				"rubocop",
-			},
 			html = {
 				"prettier",
 			},

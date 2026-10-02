@@ -27,6 +27,7 @@ return {
 		automatic_enable = {
 			exclude = {
 				"jdtls",
+				"rubocop",
 				"solargraph",
 			},
 		},

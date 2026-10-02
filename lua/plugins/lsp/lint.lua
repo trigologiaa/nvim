@@ -28,9 +28,6 @@ return {
 			python = {
 				"ruff",
 			},
-			ruby = {
-				"rubocop",
-			},
 		}
 		vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
 			callback = function()
