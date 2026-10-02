@@ -155,7 +155,7 @@ vim.lsp.config["clangd"] = {
 		"c",
 		"cpp",
 		"objc",
-		"obcpp",
+		"objcpp",
 		"cuda",
 	},
 	-- on_attach = nil,
