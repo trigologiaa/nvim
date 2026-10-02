@@ -146,3 +146,4 @@ vim.lsp.config("vtsls", {
 })
 
 vim.lsp.inlay_hint.enable(true)
+vim.lsp.codelens.enable(true)
