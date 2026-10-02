@@ -13,7 +13,7 @@ return {
 			"NvimTree",
 		},
 		default_amount = 3,
-		at_edge = "wrap",
+		at_edge = "stop",
 		float_win_behavior = "previous",
 		move_cursor_same_row = false,
 		cursor_follows_swapped_bufs = false,
