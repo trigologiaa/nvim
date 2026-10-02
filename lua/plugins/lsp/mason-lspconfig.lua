@@ -18,6 +18,7 @@ return {
 			"marksman",
 			"pyright",
 			"r_language_server",
+			"ruby_lsp",
 		},
 		automatic_installation = true,
 		diagnostics = {
@@ -26,6 +27,7 @@ return {
 		automatic_enable = {
 			exclude = {
 				"jdtls",
+				"solargraph",
 			},
 		},
 	},
