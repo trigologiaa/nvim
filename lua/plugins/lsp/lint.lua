@@ -1,5 +1,9 @@
 return {
 	"mfussenegger/nvim-lint",
+	event = {
+		"BufReadPre",
+		"BufNewFile",
+	},
 	config = function()
 		local lint = require("lint")
 		lint.linters_by_ft = {
@@ -9,22 +13,11 @@ return {
 			java = {
 				"checkstyle",
 			},
-			javascript = {
-				"eslint_d",
-			},
-			python = {
-				"ruff",
-			},
 		}
-		vim.api.nvim_create_autocmd({
-			"BufWritePost",
-			"BufReadPost",
-			"InsertLeave",
-		}, {
+		vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
+			group = vim.api.nvim_create_augroup("user_lint", { clear = true }),
 			callback = function()
-				require("lint").try_lint(nil, {
-					ignore_errors = true,
-				})
+				lint.try_lint(nil, { ignore_errors = true })
 			end,
 		})
 	end,
