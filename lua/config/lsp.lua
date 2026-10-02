@@ -259,7 +259,6 @@ vim.lsp.config["herb_ls"] = {
 		"--stdio",
 	},
 	filetypes = {
-		"html",
 		"eruby",
 	},
 	root_markers = {
