@@ -34,7 +34,7 @@ return {
 		keymaps = {
 			view = {
 				quit = "q",
-				toggle_explorer = "<leader>b",
+				toggle_explorer = "<leader>ge",
 				next_hunk = "]c",
 				prev_hunk = "[c",
 				next_file = "]f",
