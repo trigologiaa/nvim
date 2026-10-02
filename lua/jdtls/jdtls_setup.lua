@@ -2,20 +2,25 @@ local M = {}
 
 function M.setup()
 	local home = os.getenv("HOME")
-	local status_ok, blink = pcall(require, "blink.cmp")
-	local capabilities = status_ok and blink.get_lsp_capabilities() or vim.lsp.protocol.make_client_capabilities()
-	local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-	local workspace_dir = "/home/gaston/development/jdtls_data/" .. project_name
-	local launcher_jar =
-		vim.fn.glob("/home/gaston/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
+	local data = vim.fn.stdpath("data")
+	local jdtls_dir = data .. "/mason/packages/jdtls"
+	local root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }) or vim.fn.getcwd()
+	local project_name = vim.fn.fnamemodify(root_dir, ":t")
+	local workspace_dir = data .. "/jdtls/workspace/" .. project_name
+	local launcher_jar = vim.fn.glob(jdtls_dir .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 	local lombok_path = home .. "/.java/lombok.jar"
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	local has_blink, blink = pcall(require, "blink.cmp")
+	if has_blink then
+		capabilities = blink.get_lsp_capabilities(capabilities)
+	end
 	local config = {
 		cmd = {
 			"java",
 			"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 			"-Dosgi.bundles.defaultStartLevel=4",
 			"-Dlog.protocol=true",
-			"-Dlog.level=ALL",
+			"-Dlog.level=WARNING",
 			"-Xmx1g",
 			"--add-modules=ALL-SYSTEM",
 			"--add-opens",
@@ -26,11 +31,11 @@ function M.setup()
 			"-jar",
 			launcher_jar,
 			"-configuration",
-			"/home/gaston/.local/share/nvim/mason/packages/jdtls/config_linux/",
+			jdtls_dir .. "/config_linux/",
 			"-data",
 			workspace_dir,
 		},
-		root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
+		root_dir = root_dir,
 		settings = {
 			java = {},
 		},
