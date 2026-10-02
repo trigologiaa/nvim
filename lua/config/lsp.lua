@@ -139,11 +139,6 @@ vim.lsp.config["clangd"] = {
 			},
 		},
 	},
-	init_options = {
-		fallbackFlags = {
-			"-std=c++23",
-		},
-	},
 	cmd = {
 		"clangd",
 		"--background-index",
