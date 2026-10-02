@@ -23,9 +23,6 @@ return {
 			"vue_ls",
 		},
 		automatic_installation = true,
-		diagnostics = {
-			virtual_text = false,
-		},
 		automatic_enable = {
 			exclude = {
 				"jdtls",
