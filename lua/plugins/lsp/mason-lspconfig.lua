@@ -11,14 +11,18 @@ return {
 	},
 	opts = {
 		ensure_installed = {
+			"clangd",
+			"eslint",
 			"gopls",
 			"herb_ls",
 			"html",
+			"kotlin_language_server",
 			"lua_ls",
 			"marksman",
 			"pyright",
 			"r_language_server",
 			"ruby_lsp",
+			"ruff",
 			"vtsls",
 			"vue_ls",
 		},
