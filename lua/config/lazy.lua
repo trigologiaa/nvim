@@ -144,4 +144,15 @@ require("lazy").setup({
 	change_detection = {
 		notify = false,
 	},
+	performance = {
+		rtp = {
+			disable_plugins = {
+				"gzip",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
 })
