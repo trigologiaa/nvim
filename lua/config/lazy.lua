@@ -102,9 +102,6 @@ require("lazy").setup({
 			import = "plugins.utility",
 		},
 		{
-			import = "plugins.animation",
-		},
-		{
 			import = "plugins.terminal",
 		},
 		{
