@@ -186,22 +186,6 @@ vim.lsp.config["sqls"] = {
 	settings = {},
 }
 
--- Markdown
-vim.lsp.config["markdown_oxide"] = {
-	cmd = {
-		"markdown-oxide",
-	},
-	filetype = {
-		"markdown",
-	},
-	-- on_attach = nil,
-	root_markers = {
-		".git",
-		".obdsidian",
-		".moxide.toml",
-	},
-}
-
 vim.lsp.config["eslint"] = {
 	cmd = {
 		"vscode-eslint-language-server",

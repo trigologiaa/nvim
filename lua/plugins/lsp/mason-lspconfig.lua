@@ -13,6 +13,7 @@ return {
 		ensure_installed = {
 			"gopls",
 			"lua_ls",
+			"marksman",
 			"pyright",
 			"r_language_server",
 		},
