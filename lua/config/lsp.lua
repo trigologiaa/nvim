@@ -269,9 +269,10 @@ vim.lsp.config["herb_ls"] = {
 
 vim.lsp.config["kotlin_language_server"] = {
 	cmd = {
-		"env",
-		"JAVA_HOME=/usr/lib/jvm/java-21-openjdk",
-		"/home/gaston/.local/share/nvim/mason/bin/kotlin-language-server",
+		"kotlin-language-server",
+	},
+	cmd_env = {
+		JAVA_HOME = vim.env.KOTLIN_JAVA_HOME or "/usr/lib/jvm/java-21-openjdk/",
 	},
 	filetypes = {
 		"kotlin",
