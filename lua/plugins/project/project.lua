@@ -38,7 +38,9 @@ return {
 			"py",
 		},
 		-- allow_patterns_for_lsp = false,
-		allow_different_owners = false,
+		different_owners = {
+			allow = false,
+		},
 		enable_autochdir = false,
 		show_hidden = false,
 		-- ignore_lsp = {
@@ -49,8 +51,10 @@ return {
 		},
 		silent_chdir = true,
 		scope_chdir = "global",
-		datapath = vim.fn.stdpath("data"),
-		historysize = 100,
+		history = {
+			save_dir = vim.fn.stdpath("data"),
+			size = 100,
+		},
 		log = {
 			enabled = false,
 			max_size = 1.1,
@@ -94,7 +98,7 @@ return {
 					f = "find_project_files",
 					r = "recent_project_files",
 					s = "search_in_project_files",
-					w = "change_working_directory",
+					w = "change_cwd",
 				},
 				i = {
 					["<C-b>"] = "browse_project_files",
@@ -102,7 +106,7 @@ return {
 					["<C-f>"] = "find_project_files",
 					["<C-r>"] = "recent_project_files",
 					["<C-s>"] = "search_in_project_files",
-					["<C-w>"] = "change_working_directory",
+					["<C-w>"] = "change_cwd",
 				},
 			},
 		},
