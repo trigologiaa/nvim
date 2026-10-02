@@ -12,9 +12,11 @@ return {
 			install_dir = vim.fn.stdpath("data") .. "/site",
 		})
 		ts.install({
+			"gh_actions_expressions",
 			"go",
 			"gomod",
-			"goworxpressions",
+			"gowork",
+			"kdl",
 			"yaml",
 			"json",
 			"html",
@@ -23,7 +25,6 @@ return {
 			"lua",
 			"luadoc",
 			"python",
-			"java",
 			"java",
 			"javadoc",
 			"xml",
