@@ -1,19 +1,5 @@
 -- Go
-vim.lsp.config["gopls"] = {
-	cmd = {
-		"gopls",
-	},
-	filetypes = {
-		"go",
-		"gomod",
-		"gowork",
-		"gotmpl",
-	},
-	root_markers = {
-		"go.work",
-		"go.mod",
-		".git",
-	},
+vim.lsp.config("gopls", {
 	settings = {
 		gopls = {
 			hints = {
@@ -42,26 +28,10 @@ vim.lsp.config["gopls"] = {
 			},
 		},
 	},
-}
+})
 
 -- Lua
-vim.lsp.config["lua_ls"] = {
-	cmd = {
-		"lua-language-server",
-	},
-	filetypes = {
-		"lua",
-	},
-	root_markers = {
-		".emmyrc.json",
-		".luarc.json",
-		".luarc.jsonc",
-		".stylua.toml",
-		"stylua.toml",
-		"selene.toml",
-		"selene.yml",
-		".git",
-	},
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			codeLens = {
@@ -79,23 +49,10 @@ vim.lsp.config["lua_ls"] = {
 			},
 		},
 	},
-}
+})
 
 -- Python
-vim.lsp.config["ruff"] = {
-	cmd = {
-		"ruff",
-		"server",
-	},
-	filetypes = {
-		"python",
-	},
-	root_markers = {
-		"pyproject.toml",
-		"ruff.toml",
-		".ruff.toml",
-		".git",
-	},
+vim.lsp.config("ruff", {
 	init_options = {
 		settings = {
 			lint = {
@@ -103,40 +60,10 @@ vim.lsp.config["ruff"] = {
 			},
 		},
 	},
-}
-
--- R
-vim.lsp.config["r_language_server"] = {
-	cmd = {
-		"R",
-		"--no-echo",
-		"-e",
-		"languageserver::run()",
-	},
-	filetypes = {
-		"r",
-		"rmd",
-		"quarto",
-	},
-	root_markers = {
-		".git",
-		".Rproj.user",
-	},
-}
+})
 
 -- C
-vim.lsp.config["clangd"] = {
-	capabilities = {
-		offsetEncoding = {
-			"utf-8",
-			"utf-16",
-		},
-		textDocument = {
-			completion = {
-				editsNearCursor = true,
-			},
-		},
-	},
+vim.lsp.config("clangd", {
 	cmd = {
 		"clangd",
 		"--background-index",
@@ -144,48 +71,10 @@ vim.lsp.config["clangd"] = {
 		"--header-insertion=never",
 		"--fallback-style=llvm",
 	},
-	filetypes = {
-		"c",
-		"cpp",
-		"objc",
-		"objcpp",
-		"cuda",
-	},
-	-- on_attach = nil,
-	-- on_init = nil,
-	root_markers = {
-		".clangd",
-		".clang-tidy",
-		".clang-format",
-		"compile_commands.json",
-		"compile_flags.txt",
-		"configure.ac",
-		".git",
-	},
-}
+})
 
-vim.lsp.config["eslint"] = {
-	cmd = {
-		"vscode-eslint-language-server",
-		"--stdio",
-	},
-	filetypes = {
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"vue",
-		"svelte",
-		"astro",
-		"htmlangular",
-	},
-	root_markers = {
-		".eslintrc.js",
-		".eslintrc.json",
-		"eslint.config.js",
-		"package.json",
-		".git",
-	},
+-- JavaScript / TypeScript
+vim.lsp.config("eslint", {
 	settings = {
 		experimental = {
 			useFlatConfig = true,
@@ -194,126 +83,55 @@ vim.lsp.config["eslint"] = {
 			mode = "location",
 		},
 	},
-}
+})
 
 -- Ruby
-vim.lsp.config["ruby_lsp"] = {
-	cmd = {
-		"ruby-lsp",
-	},
-	filetypes = {
-		"ruby",
-		"eruby",
-	},
+vim.lsp.config("ruby_lsp", {
 	init_options = {
 		formatter = "rubocop",
 		linters = {
 			"rubocop",
 		},
 	},
-	-- reuse_client = nil,
-	root_markers = {
-		"Gemfile",
-		".git",
-	},
-}
+})
 
 -- HTML
-local capabilitiesHTML = vim.lsp.protocol.make_client_capabilities()
-capabilitiesHTML.textDocument.completion.completionItem.snippetSupport = true
-vim.lsp.config["html"] = {
-	cmd = {
-		"vscode-html-language-server",
-		"--stdio",
-	},
+vim.lsp.config("html", {
 	filetypes = {
 		"html",
 		"templ",
 	},
-	init_options = {
-		configurationSection = {
-			"html",
-			"css",
-			"javascript",
-		},
-		embeddedLanguages = {
-			css = true,
-			javascript = true,
-		},
-		provideFormatter = true,
-	},
-	root_markers = {
-		"package.json",
-		".git",
-	},
-	settings = {},
-	capabilities = capabilitiesHTML,
-}
+})
 
 -- ERB
-vim.lsp.config["herb_ls"] = {
-	cmd = {
-		"herb-language-server",
-		"--stdio",
-	},
+vim.lsp.config("herb_ls", {
 	filetypes = {
 		"eruby",
 	},
-	root_markers = {
-		"Gemfile",
-		".git",
-	},
-}
+})
 
-vim.lsp.config["kotlin_language_server"] = {
-	cmd = {
-		"kotlin-language-server",
-	},
+-- Kotlin
+vim.lsp.config("kotlin_language_server", {
 	cmd_env = {
 		JAVA_HOME = vim.env.KOTLIN_JAVA_HOME or "/usr/lib/jvm/java-21-openjdk/",
 	},
-	filetypes = {
-		"kotlin",
-	},
-	init_options = {},
-	root_markers = {
-		"settings.gradle",
-		"settings.gradle.kts",
-		"build.xml",
-		"pom.xml",
-		"build.gradle",
-		"build.gradle.kts",
-	},
-}
+})
 
-vim.lsp.config["vue_ls"] = {
-	cmd = {
-		"vue-language-server",
-		"--stdio",
-	},
-	filetypes = {
-		"vue",
-	},
-	-- on_init = nil,
-	root_markers = {
-		"package.json",
-	},
-}
-
-local vue_plugin = {
-	name = "@vue/typescript-plugin",
-	location = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-	languages = {
-		"vue",
-	},
-	configNamespace = "typescript",
-}
-vim.lsp.config["vtsls"] = {
+-- TypeScript / JavaScript (also serves .vue files in hybrid mode with vue_ls)
+vim.lsp.config("vtsls", {
 	settings = {
 		vtsls = {
 			tsserver = {
 				globalPlugins = {
-					vue_plugin,
+					{
+						name = "@vue/typescript-plugin",
+						location = vim.fn.stdpath("data")
+							.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+						languages = {
+							"vue",
+						},
+						configNamespace = "typescript",
+					},
 				},
 			},
 		},
@@ -325,6 +143,6 @@ vim.lsp.config["vtsls"] = {
 		"typescriptreact",
 		"vue",
 	},
-}
+})
 
 vim.lsp.inlay_hint.enable(true)
