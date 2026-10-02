@@ -74,10 +74,8 @@ vim.lsp.config["lua_ls"] = {
 				paramType = true,
 				arrayIndex = "Disable",
 			},
-			diagnostics = {
-				globals = {
-					"vim",
-				},
+			runtime = {
+				version = "LuaJIT",
 			},
 		},
 	},

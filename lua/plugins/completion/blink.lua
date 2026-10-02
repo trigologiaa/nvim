@@ -1,4 +1,9 @@
 return {
+	diagnostics = {
+		globals = {
+			"vim",
+		},
+	},
 	"saghen/blink.cmp",
 	enabled = true,
 	event = "InsertEnter",
@@ -71,6 +76,10 @@ return {
 				"buffer",
 			},
 			per_filetype = {
+				lua = {
+					inherit_defaults = true,
+					"lazydev",
+				},
 				sql = {
 					"dadbod",
 					"snippets",
@@ -126,11 +135,6 @@ return {
 						show_documentation_window = true,
 					},
 				},
-				-- ripgrep = {
-				-- 	module = "blink-ripgrep",
-				-- 	name = "Ripgrep",
-				-- 	opts = {},
-				-- },
 				conventional_commits = {
 					name = "Conventional Commits",
 					module = "blink-cmp-conventional-commits",
@@ -142,6 +146,11 @@ return {
 				git = {
 					module = "blink-cmp-git",
 					name = "Git",
+				},
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
 				},
 			},
 		},
