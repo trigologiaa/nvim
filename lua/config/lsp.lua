@@ -145,5 +145,19 @@ vim.lsp.config("vtsls", {
 	},
 })
 
+-- Hyprland
+vim.filetype.add({
+	settings = {
+		hyprls = {
+			preferIgnoreFile = true,
+			ignore = {
+				"hyprlock.conf",
+				"hypridle.conf",
+			},
+		},
+	},
+})
+vim.lsp.enable("hyprls")
+
 vim.lsp.inlay_hint.enable(true)
 vim.lsp.codelens.enable(true)
