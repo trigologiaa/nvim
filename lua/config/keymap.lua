@@ -4,9 +4,6 @@ end
 
 map("n", "<leader>A", "<cmd>WhichKey<CR>", "Which-Key Pop-Up Menu Interface")
 
-map("n", "<leader>L", "<cmd>Lazy<CR>", "Lazy")
-map("n", "<leader>M", "<cmd>Mason<CR>", "Mason")
-map("n", "<leader>S", "<cmd>Store<CR>", "Store")
 map("n", "<leader>T", "<cmd>BabelWord<CR>", "translate word")
 map("v", "<leader>T", "<cmd>Babel<CR>", "translate selection")
 
@@ -32,7 +29,6 @@ map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", "toggle debug [b]reakpoin
 map("n", "<leader>dc", "<cmd>DapContinue<CR>", "[c]ontinue debug execution")
 map("n", "<leader>de", "<cmd>lua require('dapui').eval()<CR>", "[e]val under cursor")
 map("n", "<leader>df", "<cmd>DapShowLog<CR>", "show [f]ile log")
-map("n", "<leader>dg", "<cmd>lua require('dap.ui.widgets').hover()<CR>", "[g]et widget info")
 map("n", "<leader>dh", "<cmd>lua require('dap').run_to_cursor()<CR>", "debug [h]ere")
 map("n", "<leader>di", "<cmd>DapStepInto<CR>", "debug [i]nto")
 map("n", "<leader>dj", "<cmd>lua require('dap').down()<CR>", "debug jump [j]")
@@ -43,7 +39,6 @@ map("n", "<leader>dn", "<cmd>DapNew<CR>", "debug [n]ew session")
 map("n", "<leader>do", "<cmd>DapStepOver<CR>", "debug step [o]ver")
 map("n", "<leader>dp", "<cmd>DapPause<CR>", "debug [p]ause")
 map("n", "<leader>dr", "<cmd>DapRestartFrame<CR>", "[r]estart frame")
-map("n", "<leader>ds", "<cmd>DapNew<CR>", "new [s]ession")
 map("n", "<leader>dt", "<cmd>DapTerminate<CR>", "debug [t]erminate")
 map("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", "[u]i interface")
 map("n", "<leader>dw", "<cmd>lua require('dap.ui.widgets').hover()<CR>", "debug [w]idgets")
@@ -132,7 +127,7 @@ map("n", "<leader>uv", require("config.functions").toggle_csv_view, "toggle cs[v
 map("n", "<leader>uz", require("config.functions").toggle_zen_mode, "toggle [z]en mode")
 
 -- w: Windows
-map("n", "<Tab>", "<C-w>w", "next window")
+map("n", "<leader>ww", "<C-w>w", "next [w]indow")
 
 -- x: Diagnostics
 map("n", "<leader>xd", "<cmd>Trouble diagnostics toggle<CR>", "toggle [d]iagnostics")
@@ -144,7 +139,3 @@ map("n", "<leader>xu", "<cmd>Trouble loclist toggle<CR>", "[u]bication list")
 -- y: Yank
 map("n", "<leader>yh", "<cmd>Telescope neoclip<CR>", "yank [h]istory")
 
--- z: Zen / Zoom
-map("n", "<leader>zm", "<cmd>ZenMode<CR>", "toggle [z]en mode")
-
--- |: tabs

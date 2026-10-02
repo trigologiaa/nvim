@@ -32,8 +32,6 @@ return {
 			{ "<leader>w", group = "Windows" },
 			{ "<leader>x", group = "Diagnostics" },
 			{ "<leader>y", group = "Yank" },
-			{ "<leader>z", group = "Zen / Zoom" },
-			{ "<leader>|", group = "tabs" },
 		},
 		notify = true,
 		triggers = {
