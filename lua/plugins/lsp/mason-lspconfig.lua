@@ -12,6 +12,8 @@ return {
 	opts = {
 		ensure_installed = {
 			"gopls",
+			"herb_ls",
+			"html",
 			"lua_ls",
 			"marksman",
 			"pyright",
