@@ -299,15 +299,6 @@ M.lint_file = function()
 	end
 end
 
-M.code_actions = function()
-	local status, _ = pcall(function()
-		require("tiny-code-action").code_action()
-	end)
-	if not status then
-		vim.notify("No code actions available at cursor", vim.log.levels.WARN, { title = "LSP" })
-	end
-end
-
 M.new_file = function()
 	local dir = vim.fn.expand("%:p:h") .. "/"
 	vim.ui.input({ prompt = "New file name: ", default = dir, completion = "file" }, function(input)

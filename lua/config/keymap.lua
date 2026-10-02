@@ -8,7 +8,9 @@ map("n", "<leader>T", "<cmd>BabelWord<CR>", "translate word")
 map("v", "<leader>T", "<cmd>Babel<CR>", "translate selection")
 
 -- a: Actions / AI
-map("n", "<leader>aa", "<cmd>lua require('tiny-code-action').code_action()<CR>", "LSP [a]ctions")
+map({ "n", "v" }, "<leader>aa", function()
+	require("tiny-code-action").code_action()
+end, "LSP [a]ctions")
 
 -- b: Buffers
 map("n", "<leader>bb", "<C-^>", "switch [b]uffers")
@@ -138,4 +140,3 @@ map("n", "<leader>xu", "<cmd>Trouble loclist toggle<CR>", "[u]bication list")
 
 -- y: Yank
 map("n", "<leader>yh", "<cmd>Telescope neoclip<CR>", "yank [h]istory")
-
