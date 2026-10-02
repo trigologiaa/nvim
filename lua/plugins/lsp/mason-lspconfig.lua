@@ -19,6 +19,8 @@ return {
 			"pyright",
 			"r_language_server",
 			"ruby_lsp",
+			"vtsls",
+			"vue_ls",
 		},
 		automatic_installation = true,
 		diagnostics = {
