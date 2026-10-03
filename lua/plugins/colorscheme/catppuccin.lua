@@ -84,7 +84,14 @@ return {
 			},
 		},
 		color_overrides = {},
-		custom_highlights = {},
+		custom_highlights = function()
+			return {
+				LineNr = {
+					fg = "#D1D1D1",
+					bold = true,
+				},
+			}
+		end,
 		default_integrations = true,
 		auto_integrations = true,
 		integrations = {
